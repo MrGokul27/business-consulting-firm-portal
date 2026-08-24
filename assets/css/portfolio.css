@@ -1,0 +1,301 @@
+/* Portfolio Navigation Filter */
+.portfolio-filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.portfolio-filter-nav .filter-btn {
+  border: 2px solid rgba(0, 46, 79, 0.1);
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 30px;
+  transition: var(--transition-medium);
+}
+.portfolio-filter-nav .filter-btn:hover,
+.portfolio-filter-nav .filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* Portfolio Item Transition for Filtering */
+.portfolio-item {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Portfolio Details Card */
+.portfolio-grid-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-medium);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.portfolio-grid-card .img-box {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+.portfolio-grid-card .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-medium);
+}
+.portfolio-grid-card .category {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+.portfolio-grid-card .info-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.portfolio-grid-card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+.portfolio-grid-card p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.portfolio-grid-card .btn-link {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+.portfolio-grid-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+}
+.portfolio-grid-card:hover .img-box img {
+  transform: scale(1.08);
+}
+.portfolio-grid-card:hover .btn-link {
+  color: var(--secondary-color);
+}
+
+/* Spotlight Case Study */
+.spotlight-box {
+  background-color: var(--dark-bg);
+  color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-md);
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.spotlight-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(223, 202, 95, 0.12);
+}
+.spotlight-info {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.spotlight-info h3 {
+  color: var(--white);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+.spotlight-info p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+.spotlight-stats {
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+}
+.spotlight-stats > div {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.spotlight-box:hover .spotlight-stats > div {
+  transform: translateY(-5px);
+}
+.spotlight-box:hover .spotlight-stats > div:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.spotlight-box:hover .spotlight-stats > div:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.spotlight-stats h4 {
+  color: var(--secondary-color);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+.spotlight-stats > div:hover h4 {
+  transform: scale(1.1);
+}
+.spotlight-stats p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+.spotlight-img-col {
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-img-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.spotlight-box:hover .spotlight-img-bg {
+  transform: scale(1.05);
+}
+@media (max-width: 991px) {
+  .spotlight-info {
+    padding: 40px 30px;
+  }
+  .spotlight-img-col {
+    min-height: 300px;
+  }
+}
+
+/* 6. OUR STRATEGIC SECTORS Hover Effects */
+.sector-card {
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.sector-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary-color) !important;
+  background-color: var(--white) !important;
+  box-shadow: 0 15px 35px rgba(0, 46, 79, 0.08);
+}
+.sector-card .text-gold {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.sector-card:hover .text-gold {
+  transform: scale(1.25) translateY(-3px);
+}
+
+/* 7. ADVISORY IMPACT METRICS Hover Effects */
+.metric-card {
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.metric-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 15px 30px rgba(223, 202, 95, 0.15) !important;
+}
+.metric-card h3 {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.metric-card:hover h3 {
+  transform: scale(1.1);
+}
+
+/* 8. CONSULTING PERFORMANCE GUARANTEES Hover Effects */
+.guarantee-card {
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-left-width 0.3s ease;
+}
+.guarantee-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-left-width: 8px !important;
+  box-shadow: 0 15px 35px rgba(0, 46, 79, 0.25);
+}
+.guarantee-card h5 i {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.guarantee-card:hover h5 i {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* 9. CTA START YOUR CASE STUDY Hover Effects */
+.cta-form-card {
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.cta-form-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 20px 40px rgba(0, 46, 79, 0.1) !important;
+}
+.cta-form-card .form-control {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.cta-form-card .form-control:hover {
+  border-color: rgba(223, 202, 95, 0.5);
+}
+.cta-form-card .form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.25rem rgba(223, 202, 95, 0.2);
+}
+
+.contact-info li {
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+.contact-info li:hover {
+  transform: translateX(8px);
+  color: var(--primary-color) !important;
+}
+.contact-info li span i {
+  transition: transform 0.3s ease;
+}
+.contact-info li:hover span i {
+  transform: scale(1.25);
+}

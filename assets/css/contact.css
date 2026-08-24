@@ -1,0 +1,89 @@
+/* Info Cards */
+.contact-info-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: var(--box-shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  text-align: center;
+  transition: var(--transition-medium);
+  height: 100%;
+}
+.contact-info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+  border-bottom: 4px solid var(--secondary-color);
+}
+.contact-info-card .icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 46, 79, 0.05);
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: var(--transition-fast);
+}
+.contact-info-card:hover .icon-box {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.contact-info-card h5 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.contact-info-card p,
+.contact-info-card a {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-bottom: 0;
+}
+
+/* Contact Page Form styling */
+.contact-form-wrapper {
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: var(--box-shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+.contact-form-wrapper h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+.contact-form-wrapper .form-control,
+.contact-form-wrapper .form-select {
+  padding: 14px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+.contact-form-wrapper .form-control:focus,
+.contact-form-wrapper .form-select:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+  background-color: var(--white);
+}
+@media (max-width: 768px) {
+  .contact-form-wrapper {
+    padding: 30px 20px;
+  }
+}
+
+/* Interactive Map block */
+.map-container {
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-md);
+  border: 5px solid var(--white);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

@@ -1,0 +1,70 @@
+/* Pricing Feature Comparison Table */
+.comparison-table-wrapper {
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--box-shadow-md);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.comparison-table {
+  margin-bottom: 0;
+}
+.comparison-table th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  padding: 20px;
+  border: none;
+  text-align: center;
+}
+.comparison-table th:first-child {
+  text-align: left;
+}
+.comparison-table td {
+  padding: 18px 20px;
+  vertical-align: middle;
+  text-align: center;
+  border-color: rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.comparison-table tr:nth-child(even) td {
+  background-color: var(--light-bg);
+}
+.comparison-table i.fa-circle-check {
+  color: #28a745;
+  font-size: 1.15rem;
+}
+.comparison-table i.fa-circle-xmark {
+  color: #dc3545;
+  font-size: 1.15rem;
+}
+
+/* Custom Estimator Panel */
+.estimator-card {
+  background-color: var(--light-bg);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--box-shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* SLA terms list */
+.sla-term-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--box-shadow-sm);
+  border-top: 4px solid var(--secondary-color);
+  height: 100%;
+}
+.sla-term-card h5 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}

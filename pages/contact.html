@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Stackly Consulting</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/images/logoStackly.webp"
+      type="image/webp"
+    />
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome 6.6.0 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Styles CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/contact.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 1. HEADER SECTION -->
+    <div id="header-placeholder"></div>
+
+    <!-- 2. COMMON BANNER & BREADCRUMBS SECTION -->
+    <section
+      class="page-banner"
+      style="
+        background-image: url(&quot;https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1470&quot;);
+      "
+    >
+      <div class="container">
+        <div class="page-banner-content text-white">
+          <span class="section-subtitle">Reach Out</span>
+          <h1>Connect With Our Advisors</h1>
+          <p>
+            Connect with our managing partners to schedule a complimentary
+            business diagnostics meeting. We analyze operational data and
+            outline direct optimization routes under strict NDAs.
+          </p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Contact
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTRODUCTION SECTION -->
+    <section class="py-5 bg-white">
+      <div class="container py-4 text-center">
+        <div class="max-800 mx-auto">
+          <span class="section-subtitle justify-content-center"
+            >Advisory Setup</span
+          >
+          <h2 class="section-title text-dark-blue">
+            Diagnostic Meeting Channels
+          </h2>
+          <p class="lead text-muted">
+            Whether you require capital restructuring, cloud migrations, or
+            supply chain auditing, Stackly aligns expert resources for a
+            diagnostic meeting. Select your contact channel below.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PRIMARY CONTACT INFO CARDS -->
+    <section class="py-2 bg-white">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Phone -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="contact-info-card">
+              <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+              <h5>Phone Number</h5>
+              <p class="text-gold fw-bold mb-2">Direct Advisory Line</p>
+              <a href="tel:+919876543210" class="hover-gold">+91 9876543210</a>
+            </div>
+          </div>
+          <!-- Email -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="contact-info-card">
+              <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+              <h5>Email Address</h5>
+              <p class="text-gold fw-bold mb-2">Corporate Inquiries</p>
+              <a href="mailto:info@stacklyconsulting.co.uk" class="hover-gold"
+                >info@stacklyconsulting.co.uk</a
+              >
+            </div>
+          </div>
+          <!-- Address -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="contact-info-card">
+              <div class="icon-box">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <h5>Our Headquarters</h5>
+              <p class="text-gold fw-bold mb-2">Soho, London Office</p>
+              <p class="fs-xs">12 Broadwick St, London W1F 0QD</p>
+            </div>
+          </div>
+          <!-- Hours -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="contact-info-card">
+              <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+              <h5>Operating Hours</h5>
+              <p class="text-gold fw-bold mb-2">Office Openings</p>
+              <p class="fs-xs">Mon - Fri: 08:30 - 18:00 GMT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DETAILED CONSULTATION REQUEST FORM -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="contact-form-wrapper">
+              <div class="text-center mb-4">
+                <span
+                  class="text-gold fw-bold text-uppercase tracking-wider fs-xs mb-2 d-inline-block"
+                  >Diagnostic Form</span
+                >
+                <h3 class="fw-bold text-dark-blue">Submit Operational Brief</h3>
+                <p class="text-muted fs-sm">
+                  We sign legal non-disclosure agreements before reviewing
+                  operations parameters.
+                </p>
+              </div>
+              <form action="#" method="POST">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control rounded-3"
+                      placeholder="Full Contact Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control rounded-3"
+                      placeholder="Professional Email Address"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <input
+                      type="tel"
+                      class="form-control rounded-3"
+                      placeholder="Phone Number (e.g. +91 9876543210)"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control rounded-3"
+                      placeholder="Company Legal Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <select
+                      class="form-select rounded-3 py-3"
+                      style="font-size: 0.95rem"
+                      required
+                    >
+                      <option value="" disabled selected>Corporate Size</option>
+                      <option>SMB (1 - 49 Employees)</option>
+                      <option>Mid-Market (50 - 249 Employees)</option>
+                      <option>Enterprise (250+ Employees)</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select
+                      class="form-select rounded-3 py-3"
+                      style="font-size: 0.95rem"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Service Interest
+                      </option>
+                      <option>Strategic Corporate Planning</option>
+                      <option>Financial Restructuring</option>
+                      <option>IT & Cloud Engineering</option>
+                      <option>Operations Management</option>
+                      <option>Compliance Risk Audits</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <textarea
+                    rows="4"
+                    class="form-control rounded-3"
+                    placeholder="Briefly summarize operating bottlenecks, data integration needs, or capital concerns..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-check mb-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="ndaCheck"
+                    required
+                  />
+                  <label
+                    class="form-check-label fs-xs text-muted"
+                    for="ndaCheck"
+                  >
+                    I require a pre-filled legal Non-Disclosure Agreement (NDA)
+                    emailed prior to my diagnostic call.
+                  </label>
+                </div>
+                <div class="text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-gold px-5 py-3 rounded-pill fw-bold text-uppercase fs-sm"
+                  >
+                    Book Strategy Call
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CORPORATE HEAD OFFICE MAP -->
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="section-subtitle justify-content-center"
+            >Location Map</span
+          >
+          <h2 class="section-title text-dark-blue">Our Soho Headquarters</h2>
+          <p class="mx-auto text-muted" style="max-width: 600px">
+            Visit our offices for boardroom strategy alignments. Our building is
+            situated in Central London Soho.
+          </p>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9774616223403!2d-0.1384022842297624!3d51.51362897963666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d49d97a9d3%3A0xe67be25902187f54!2s12%20Broadwick%20St%2C%20London%20W1F%200QD%2C%20UK!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. EMERGENCY HOTLINE -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4">
+        <div
+          class="p-5 bg-dark-blue text-white rounded-4 border-start border-gold border-4"
+        >
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <h4 class="text-white fw-bold mb-2">
+                <i class="fa-solid fa-bell-exclamation text-gold me-2"></i>
+                Regulatory Threat / Audit Emergency?
+              </h4>
+              <p class="fs-sm mb-0">
+                For companies facing sudden regulatory compliance disputes,
+                financial auditing alerts, or security issues, Stackly maintains
+                an accelerated diagnostic setup channel.
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a
+                href="tel:+919876543210"
+                class="btn btn-gold py-3 px-4 rounded-3 fw-bold text-uppercase fs-xs"
+                >Advisory Helpline</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONSULTING SLA GUARANTEES -->
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="section-subtitle">Engagement SLA</span>
+            <h2 class="section-title text-dark-blue">
+              Diagnostic Call Response Times
+            </h2>
+            <p class="text-muted mb-4">
+              We respect corporate scheduling. When a strategic diagnostic brief
+              is filed via our forms, we maintain strict response time
+              guarantees.
+            </p>
+            <p class="text-muted mb-0">
+              Our target is to coordinate with your board representatives to
+              confirm a strategy call and share pre-meeting NDAs within half a
+              business day.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-4 bg-light-custom rounded-4 border">
+              <ul class="list-unstyled mb-0 fs-sm">
+                <li class="py-2 border-bottom d-flex justify-content-between">
+                  <span>Diagnostic Forms Review</span>
+                  <span class="fw-bold text-dark-blue">Under 4 Hours</span>
+                </li>
+                <li class="py-2 border-bottom d-flex justify-content-between">
+                  <span>Pre-Meeting NDA Email</span>
+                  <span class="fw-bold text-dark-blue">Under 2 Hours</span>
+                </li>
+                <li class="py-2 border-bottom d-flex justify-content-between">
+                  <span>Meeting Alignment Booking</span>
+                  <span class="fw-bold text-dark-blue">Under 12 Hours</span>
+                </li>
+                <li class="py-2 d-flex justify-content-between">
+                  <span>Preliminary Diagnostic Report</span>
+                  <span class="fw-bold text-dark-blue">Under 48 Hours</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SOCIAL MEDIA CONNECT SECTION -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4 text-center">
+        <span class="section-subtitle justify-content-center"
+          >Social Networks</span
+        >
+        <h2 class="section-title text-dark-blue">Follow Our Channels</h2>
+        <p class="mx-auto text-muted mb-4" style="max-width: 600px">
+          Follow our social channels to receive the latest corporate compliance
+          news, market forecasts, and IT strategy whitepaper updates.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a
+            href="https://x.com"
+            target="_blank"
+            class="btn btn-outline-blue px-4 py-3 rounded-pill fw-bold text-uppercase fs-xs"
+            ><i class="fa-brands fa-x-twitter me-2"></i> Twitter X</a
+          >
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            class="btn btn-outline-blue px-4 py-3 rounded-pill fw-bold text-uppercase fs-xs"
+            ><i class="fa-brands fa-linkedin-in me-2"></i> LinkedIn</a
+          >
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="btn btn-outline-blue px-4 py-3 rounded-pill fw-bold text-uppercase fs-xs"
+            ><i class="fa-brands fa-facebook-f me-2"></i> Facebook</a
+          >
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="btn btn-outline-blue px-4 py-3 rounded-pill fw-bold text-uppercase fs-xs"
+            ><i class="fa-brands fa-instagram me-2"></i> Instagram</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FOOTER SECTION -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

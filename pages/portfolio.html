@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies Portfolio | Stackly Consulting</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/images/logoStackly.webp"
+      type="image/webp"
+    />
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome 6.6.0 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Styles CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/portfolio.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- 1. HEADER SECTION -->
+    <div id="header-placeholder"></div>
+
+    <!-- 2. COMMON BANNER & BREADCRUMBS SECTION -->
+    <section
+      class="page-banner"
+      style="
+        background-image: url(&quot;../assets/images/portfolio/portfolio-banner-image.webp&quot;);
+      "
+    >
+      <div class="container">
+        <div class="page-banner-content text-white">
+          <span class="section-subtitle">Proven Case Files</span>
+          <h1>Our Global Impact Stories</h1>
+          <p>
+            Explore real examples of fiscal turnarounds, global supply chain
+            automations, and international market entry strategy designed by our
+            advisory teams.
+          </p>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Portfolio
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PORTFOLIO FILTER NAVIGATION -->
+    <section class="py-5 bg-white">
+      <div class="container py-3">
+        <div class="portfolio-filter-nav">
+          <button class="filter-btn active" data-filter="all">
+            Show All Projects
+          </button>
+          <button class="filter-btn" data-filter="corporate-strategy">
+            Corporate Strategy
+          </button>
+          <button class="filter-btn" data-filter="financial-growth">
+            Financial growth
+          </button>
+          <button class="filter-btn" data-filter="it-cloud-systems">
+            IT & Cloud Systems
+          </button>
+          <button class="filter-btn" data-filter="supply-chain">
+            Supply Chain
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROJECT CARDS GRID -->
+    <section class="py-2 bg-white">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Case 1 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="financial-growth"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">Financial Growth</span>
+                <img
+                  src="../assets/images/home/home-portfolio-img-1.webp"
+                  alt="Retail consulting strategy storefront"
+                />
+              </div>
+              <div class="info-content">
+                <h4>Fiscal Restructuring for Retail Networks</h4>
+                <p class="text-muted fs-sm">
+                  Optimizing liquidity, reducing debt burdens, and aligning
+                  multi-channel cost structures for a major UK retail group.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Case 2 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="supply-chain"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">Supply Chain</span>
+                <img
+                  src="../assets/images/home/home-portfolio-img-2.webp"
+                  alt="Logistics warehouse automation technology"
+                />
+              </div>
+              <div class="info-content">
+                <h4>Supply Chain Automation for Logistics</h4>
+                <p class="text-muted fs-sm">
+                  Automating shipment sorting algorithms and cloud inventory
+                  databases, reducing distribution lag times.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Case 3 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="corporate-strategy"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">Corporate Strategy</span>
+                <img
+                  src="../assets/images/home/home-portfolio-img-3.webp"
+                  alt="Fintech strategic charts presentation"
+                />
+              </div>
+              <div class="info-content">
+                <h4>Penetration Strategy for EU Fintech</h4>
+                <p class="text-muted fs-sm">
+                  Navigating international cross-border financial regulations to
+                  establish a secure mobile payments network in France.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Case 4 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="corporate-strategy"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">Corporate Strategy</span>
+                <img
+                  src="../assets/images/portfolio/portfolio-grid-card4.webp"
+                  alt="Wind turbines landscape environmental energy"
+                />
+              </div>
+              <div class="info-content">
+                <h4>ESG Auditing & Integration for Energy</h4>
+                <p class="text-muted fs-sm">
+                  Restructuring energy firm governance structures to comply with
+                  green carbon reduction caps in European territories.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Case 5 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="it-cloud-systems"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">IT & Cloud Systems</span>
+                <img
+                  src="../assets/images/portfolio/portfolio-grid-card5.webp"
+                  alt="Modern server rack data center"
+                />
+              </div>
+              <div class="info-content">
+                <h4>IT Cloud Consolidation for Logistical Firms</h4>
+                <p class="text-muted fs-sm">
+                  Consolidating disjointed legacy database hubs into a unified
+                  global cloud network with high data security.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <!-- Case 6 -->
+          <div
+            class="col-lg-4 col-md-6 portfolio-item"
+            data-category="supply-chain"
+          >
+            <div class="portfolio-grid-card">
+              <div class="img-box">
+                <span class="category">Supply Chain</span>
+                <img
+                  src="../assets/images/portfolio/portfolio-grid-card6.webp"
+                  alt="Team workshop around conference table"
+                />
+              </div>
+              <div class="info-content">
+                <h4>HR Organizational Restructure for Tech</h4>
+                <p class="text-muted fs-sm">
+                  Redesigning reporting hierarchies, performance bonuses, and
+                  recruitment channels to cut employee turnover.
+                </p>
+                <a href="contact.html" class="btn-link text-decoration-none"
+                  >Read Outcome <i class="fa-solid fa-angle-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MAJOR SPOTLIGHT CASE STUDY -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="section-subtitle justify-content-center"
+            >Spotlight Case File</span
+          >
+          <h2 class="section-title text-dark-blue">
+            Turnaround for Global Telecom
+          </h2>
+        </div>
+        <div class="spotlight-box">
+          <div class="row g-0">
+            <div class="col-lg-6 spotlight-img-col">
+              <div
+                class="spotlight-img-bg"
+                style="
+                  background-image: url(&quot;../assets/images/portfolio/portfolio-spotlight-img-bg.webp&quot;);
+                "
+              ></div>
+            </div>
+            <div class="col-lg-6">
+              <div class="spotlight-info">
+                <span
+                  class="text-gold fw-bold text-uppercase tracking-wider fs-xs mb-3"
+                  >Enterprise Strategy</span
+                >
+                <h3>£18.4M Operating Inefficiencies Solved</h3>
+                <p>
+                  We partnered with a major telecommunications operator to
+                  consolidate overlapping regional support hubs, secure database
+                  frameworks, and transition legacy operations to cloud
+                  networks. The project resulted in major overhead savings
+                  within 12 months.
+                </p>
+                <div class="spotlight-stats">
+                  <div>
+                    <h4>-28%</h4>
+                    <p>SUPPORT OVERHEAD</p>
+                  </div>
+                  <div class="border-start ps-4">
+                    <h4>12mo</h4>
+                    <p>RESTRUCTURE TIMELINE</p>
+                  </div>
+                  <div class="border-start ps-4">
+                    <h4>100%</h4>
+                    <p>COMPLIANCE RECORD</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. OUR STRATEGIC SECTORS -->
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="section-subtitle justify-content-center"
+            >Industries We Serve</span
+          >
+          <h2 class="section-title text-dark-blue">
+            Corporate Sectors We Support
+          </h2>
+          <p class="mx-auto text-muted" style="max-width: 600px">
+            Our advisory frameworks are tailored to match the unique operational
+            challenges of key industries.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-coins"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Banking & Finance</h5>
+              <p class="text-muted fs-sm mb-0">
+                Helping institutions manage capital risks, align liquidity, and
+                audit compliance against local laws.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-cart-shopping"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Retail & E-commerce</h5>
+              <p class="text-muted fs-sm mb-0">
+                Restructuring multi-channel logistics, supply chain pathways,
+                and inventory database networks.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-solar-panel"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Energy & Utilities</h5>
+              <p class="text-muted fs-sm mb-0">
+                Integrating ESG frameworks, optimizing regulatory reports, and
+                restructuring capital investments.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-truck-ramp-box"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Logistics & Transport</h5>
+              <p class="text-muted fs-sm mb-0">
+                Automating sorting hubs, optimizing dispatch schedules, and
+                reducing operational overhead.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-hospital-user"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Healthcare Providers</h5>
+              <p class="text-muted fs-sm mb-0">
+                Organizing workflow pipelines, staffing ratios, and auditing
+                legal regulatory safety codes.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div
+              class="sector-card p-4 bg-light-custom rounded-4 border text-center h-100"
+            >
+              <span class="text-gold fs-3 mb-2 d-inline-block"
+                ><i class="fa-solid fa-microchip"></i
+              ></span>
+              <h5 class="fw-bold mb-2">Technology & SaaS</h5>
+              <p class="text-muted fs-sm mb-0">
+                Restructuring executive recruitment, compensation plans, and
+                scaling international data security.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ADVISORY IMPACT METRICS -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="section-subtitle">Measurable Impact</span>
+            <h2 class="section-title text-dark-blue">
+              The Numbers Behind Our Advisory
+            </h2>
+            <p class="text-muted mb-4">
+              We maintain accountability for our strategy recommendations. By
+              tracking client ROI, capital protected, and compliance safety
+              metrics, we ensure clear performance data.
+            </p>
+            <p class="text-muted mb-0">
+              These figures represent audited client outcomes achieved over the
+              past three fiscal years across our consulting verticals.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-4 text-center">
+              <div class="col-6">
+                <div
+                  class="metric-card p-4 bg-white rounded-4 border shadow-sm h-100"
+                >
+                  <h3 class="text-gold fw-bold mb-2">
+                    &pound;<span class="counter-value" data-target="42">0</span
+                    >M
+                  </h3>
+                  <p class="text-dark-blue fw-bold mb-0">Capital Optimized</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div
+                  class="metric-card p-4 bg-white rounded-4 border shadow-sm h-100"
+                >
+                  <h3 class="text-gold fw-bold mb-2">
+                    <span class="counter-value" data-target="150">0</span>+
+                  </h3>
+                  <p class="text-dark-blue fw-bold mb-0">Audits Completed</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div
+                  class="metric-card p-4 bg-white rounded-4 border shadow-sm h-100"
+                >
+                  <h3 class="text-gold fw-bold mb-2">
+                    <span class="counter-value" data-target="98">0</span>%
+                  </h3>
+                  <p class="text-dark-blue fw-bold mb-0">Client Retention</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div
+                  class="metric-card p-4 bg-white rounded-4 border shadow-sm h-100"
+                >
+                  <h3 class="text-gold fw-bold mb-2">
+                    <span class="counter-value" data-target="100">0</span>%
+                  </h3>
+                  <p class="text-dark-blue fw-bold mb-0">Compliance Record</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONSULTING PERFORMANCE GUARANTEES -->
+    <section class="py-5 bg-white">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 order-lg-2">
+            <span class="section-subtitle">Safe Integration</span>
+            <h2 class="section-title text-dark-blue">
+              Liability & NDA Safeguards
+            </h2>
+            <p class="text-muted mb-4">
+              We protect your corporate datasets. Before starting operations
+              assessments or reviewing company ledgers, Stackly signs strict
+              legal non-disclosure agreements under UK business law.
+            </p>
+            <p class="text-muted">
+              Additionally, our consulting contracts include outcome liability
+              coverage, safeguarding client operations against unexpected
+              integration issues during system transitions.
+            </p>
+          </div>
+          <div class="col-lg-5 order-lg-1">
+            <div
+              class="guarantee-card p-4 bg-dark-blue text-white rounded-4 border-start border-gold border-4"
+            >
+              <h5 class="text-gold fw-bold mb-3">
+                <i class="fa-solid fa-shield-halved me-2"></i> Our Security
+                Protocol
+              </h5>
+              <p class="fs-sm mb-3">
+                All financial datasets are stored in encrypted, isolated
+                networks with restricted access keys.
+              </p>
+              <p class="fs-sm mb-0">
+                We employ independent third-party compliance firms to audit our
+                security systems quarterly, maintaining high standards of data
+                safety.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CTA START YOUR CASE STUDY -->
+    <section class="py-5 bg-light-custom">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="section-subtitle">Begin Partnership</span>
+            <h2 class="section-title text-dark-blue">
+              Let's Design Your Success Story
+            </h2>
+            <p class="text-muted mb-4">
+              Ready to optimize capital restructures or automate supply chains?
+              Book a diagnostic meeting with our advisors. We evaluate your
+              current systems and outline a preliminary implementation plan.
+            </p>
+            <ul class="list-unstyled contact-info text-muted">
+              <li class="mb-2">
+                <span class="text-gold me-3"
+                  ><i class="fa-solid fa-phone"></i
+                ></span>
+                +91 9876543210
+              </li>
+              <li class="mb-2">
+                <span class="text-gold me-3"
+                  ><i class="fa-solid fa-envelope"></i
+                ></span>
+                info@stacklyconsulting.co.uk
+              </li>
+              <li>
+                <span class="text-gold me-3"
+                  ><i class="fa-solid fa-location-dot"></i
+                ></span>
+                12 Broadwick St, Soho, London W1F 0QD, United Kingdom
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="cta-form-card p-4 bg-white rounded-4 border shadow-sm">
+              <form action="#" method="POST">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Corporate Email Address"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company Website / Sector"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <textarea
+                    rows="3"
+                    class="form-control"
+                    placeholder="Outline operations bottlenecks..."
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-gold w-100 py-3 fw-bold text-uppercase"
+                >
+                  Submit Diagnostic Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FOOTER SECTION -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

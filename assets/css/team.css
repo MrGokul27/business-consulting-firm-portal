@@ -1,0 +1,207 @@
+/* Hierarchical Subheadings */
+.tier-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+}
+.tier-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+/* Skills Distribution Panel */
+.skills-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--box-shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Careers/Join Us Banner */
+.careers-box {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 55px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.careers-box::before {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(223, 202, 95, 0.06) 0%,
+    transparent 60%
+  );
+  z-index: -1;
+}
+.careers-box h3 {
+  color: var(--white);
+  font-size: 2.2rem;
+  margin-bottom: 1.25rem;
+}
+.careers-box p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+.careers-benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.careers-benefit-item i {
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  margin-right: 15px;
+  width: 25px;
+}
+
+@media (max-width: 768px) {
+  .careers-box {
+    padding: 35px 25px;
+  }
+}
+
+/* ==========================================================================
+   Custom Enhancements & Hover Effects (Task 1 to 5)
+   ========================================================================== */
+
+/* 5. Senior Strategy Advisors - Equal Height Images */
+.team-card img {
+  height: 100% !important;
+}
+
+/* 6. Specialist & Industry Analysts - Hover Effects */
+.analyst-card {
+  transition: var(--transition-medium);
+}
+.analyst-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg) !important;
+  border-color: var(--secondary-color) !important;
+}
+.analyst-card img {
+  transition: var(--transition-medium);
+}
+.analyst-card:hover img {
+  transform: scale(1.1);
+  border-color: var(--primary-color) !important;
+}
+
+/* 7. Our Advisory Philosophy - Hover Effects */
+.philosophy-item {
+  transition: var(--transition-medium);
+  padding: 12px 18px;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  margin-left: -18px;
+  margin-right: -18px;
+}
+.philosophy-item:hover {
+  background-color: var(--light-bg);
+  border-left-color: var(--secondary-color);
+  transform: translateX(6px);
+}
+.philosophy-item i {
+  transition: var(--transition-medium);
+  display: inline-block;
+}
+.philosophy-item:hover i {
+  transform: scale(1.25) rotate(10deg);
+  color: var(--primary-color) !important;
+}
+
+/* 8. Consultants Skills & Expertise - Hover Effects */
+.skills-card {
+  transition: var(--transition-medium);
+}
+.skills-card:hover {
+  box-shadow: var(--box-shadow-lg) !important;
+  transform: translateY(-4px);
+}
+.skill-item {
+  transition: var(--transition-medium);
+  padding: 12px;
+  border-radius: 8px;
+}
+.skill-item:hover {
+  background-color: rgba(
+    223,
+    202,
+    95,
+    0.08
+  ); /* 8% opacity of secondary-color gold */
+  transform: translateX(4px);
+}
+.skill-item .progress {
+  transition: height 0.3s ease;
+}
+.skill-item:hover .progress {
+  height: 8px !important;
+}
+.skill-item .progress-bar {
+  transition: background-color 0.3s ease;
+}
+.skill-item:hover .progress-bar {
+  background-color: var(--secondary-color) !important;
+}
+
+/* 9. Talent Acquisition / Careers - Hover Effects */
+.careers-box {
+  transition: var(--transition-medium);
+}
+.careers-box:hover {
+  box-shadow: 0 15px 35px rgba(0, 46, 79, 0.25);
+  transform: translateY(-5px);
+}
+.careers-benefit-item {
+  transition: var(--transition-fast);
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.careers-benefit-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateX(6px);
+  color: var(--secondary-color);
+}
+.careers-benefit-item i {
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+.careers-benefit-item:hover i {
+  transform: scale(1.2);
+}
+.career-position-item {
+  transition: var(--transition-fast);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+}
+.career-position-item:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(6px);
+  cursor: pointer;
+}
+.career-position-item .badge {
+  transition: var(--transition-fast);
+}
+.career-position-item:hover .badge {
+  background-color: var(--white) !important;
+  color: var(--primary-color) !important;
+}
