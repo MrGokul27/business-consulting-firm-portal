@@ -181,9 +181,11 @@
                         class="form-control rounded-3"
                         id="briefPhone"
                         name="briefPhone"
-                        placeholder="Phone Number (e.g. +91 9876543210)"
+                        placeholder="Phone Number (e.g. 9876543210)"
                         data-type="phone"
+                        minlength="10"
                         maxlength="10"
+                        pattern="[0-9]{10}"
                         required
                       />
                       <span class="input-icon"

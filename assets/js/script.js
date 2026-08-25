@@ -264,6 +264,15 @@ function initializeForms() {
               input.classList.add("is-invalid");
             }
           }
+
+          // Phone length check (requires exactly 10 digits)
+          if (input.matches('input[data-type="phone"]')) {
+            const phoneDigits = input.value.replace(/[^0-9]/g, "");
+            if (phoneDigits.length !== 10) {
+              isValid = false;
+              input.classList.add("is-invalid");
+            }
+          }
         }
       }
     });

@@ -1563,3 +1563,9 @@ a:hover {
 .blog-card:hover {
   box-shadow: 0 20px 40px rgba(0, 46, 79, 0.1) !important;
 }
+
+/* Hide default MS Edge reveal button and clear button */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}

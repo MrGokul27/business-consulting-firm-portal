@@ -443,6 +443,12 @@ body.auth-body {
   color: var(--secondary-color);
 }
 
+/* Hide default MS Edge reveal button and clear button */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 /* Password Strength Indicator */
 .strength-meter-container {
   margin-top: 10px;
