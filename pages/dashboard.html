@@ -1,0 +1,2892 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executive Advisory Dashboard | Stackly Consulting</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../assets/images/logoStackly.webp"
+      type="image/webp"
+    />
+    <!-- Bootstrap 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome 6.6.0 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Style CSS -->
+    <link href="../assets/css/styles.css" rel="stylesheet" />
+    <!-- Dashboard CSS -->
+    <link href="../assets/css/dashboard.css" rel="stylesheet" />
+  </head>
+  <body class="dashboard-body">
+    <!-- Unauthenticated Redirect Overlay -->
+    <div
+      id="authRedirectOverlay"
+      class="position-fixed top-0 start-0 w-100 h-100 bg-dark d-flex align-items-center justify-content-center z-3 d-none"
+    >
+      <div class="card p-5 text-center shadow-lg border-warning max-width-500">
+        <i class="fa-solid fa-triangle-exclamation fa-4x text-warning mb-3"></i>
+        <h3 class="fw-bold text-dark-blue">Access Denied</h3>
+        <p class="text-muted">
+          No active strategic advisory session found. Redirecting you to the
+          portal login page...
+        </p>
+        <div
+          class="spinner-border text-primary mx-auto mt-2"
+          role="status"
+        ></div>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD WRAPPER -->
+    <div class="dashboard-wrapper">
+      <!-- COLLAPSIBLE SIDEBAR -->
+      <aside class="dashboard-sidebar" id="sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+          <div class="d-flex align-items-center">
+            <a href="../index.html">
+              <img
+                src="../assets/images/logoStackly.webp"
+                alt="Stackly Consulting"
+                class="sidebar-logo"
+              />
+            </a>
+          </div>
+          <button class="btn text-white d-lg-none p-0" id="sidebarCloseBtn">
+            <i class="fa-solid fa-xmark fa-lg"></i>
+          </button>
+        </div>
+
+        <!-- User Brief Profile -->
+        <div class="sidebar-user-profile text-center text-lg-start">
+          <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+            <div class="user-avatar-circle" id="profileAvatarLetter">U</div>
+            <div class="overflow-hidden w-100">
+              <h6
+                class="text-white mb-0 text-truncate text-center text-lg-start"
+                id="profileUserEmail"
+              >
+                user@stackly.com
+              </h6>
+              <span
+                class="user-role-badge mt-1 d-inline-block"
+                id="profileUserBadge"
+                >Role</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- DYNAMIC SIDEBAR MENUS -->
+        <!-- CLIENT SIDEBAR -->
+        <ul class="sidebar-menu d-none" id="sidebar-client">
+          <li class="sidebar-menu-item active" data-tab="client-overview">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-chart-line"></i
+              ><span>Dashboard Home</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="client-team">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-users-gear"></i
+              ><span>My Advisory Team</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="client-roadmaps">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-route"></i
+              ><span>Strategic Roadmaps</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="client-financials">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-file-invoice-dollar"></i
+              ><span>Financial Reports</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="client-documents">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-vault"></i><span>Document Vault</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="client-schedule">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-calendar-check"></i
+              ><span>Schedule Session</span></a
+            >
+          </li>
+        </ul>
+
+        <!-- ADVISOR SIDEBAR -->
+        <ul class="sidebar-menu d-none" id="sidebar-advisor">
+          <li class="sidebar-menu-item active" data-tab="advisor-overview">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-gauge-high"></i
+              ><span>Advisor Home</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="advisor-portfolio">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-address-book"></i
+              ><span>Client Portfolio</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="advisor-projects">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-diagram-project"></i
+              ><span>Advisory Projects</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="advisor-appraisals">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-hand-holding-dollar"></i
+              ><span>Financial Appraisals</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="advisor-performance">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-square-poll-vertical"></i
+              ><span>Performance Reports</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="advisor-calendar">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-regular fa-calendar-days"></i
+              ><span>Advisory Calendar</span></a
+            >
+          </li>
+        </ul>
+
+        <!-- ADMINISTRATOR SIDEBAR -->
+        <ul class="sidebar-menu d-none" id="sidebar-admin">
+          <li class="sidebar-menu-item active" data-tab="admin-overview">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-laptop-code"></i><span>Admin Home</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="admin-users">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-users-cog"></i
+              ><span>User Management</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="admin-services">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-handshake-angle"></i
+              ><span>Consulting Services</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="admin-analytics">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-chart-pie"></i
+              ><span>System Analytics</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="admin-billing">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-receipt"></i
+              ><span>Invoices & Billing</span></a
+            >
+          </li>
+          <li class="sidebar-menu-item" data-tab="admin-logs">
+            <a href="#" class="sidebar-link"
+              ><i class="fa-solid fa-shield-halved"></i
+              ><span>Settings & Logs</span></a
+            >
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <button
+            class="btn btn-outline-gold w-100 rounded-pill logout-btn"
+            id="logoutBtn"
+          >
+            <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT PANEL -->
+      <main class="dashboard-main">
+        <!-- Dashboard Top Header -->
+        <header class="dashboard-header">
+          <div class="d-flex align-items-center">
+            <button class="sidebar-toggle-btn me-3" id="sidebarToggle">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h4 class="mb-0 fw-bold text-dark-blue d-none d-sm-block">
+              Strategic Advisory Portal
+            </h4>
+            <h5 class="mb-0 fw-bold text-dark-blue d-block d-sm-none">
+              Portal
+            </h5>
+          </div>
+
+          <!-- Top Navbar Controls -->
+          <div class="d-flex align-items-center gap-3">
+            <!-- Tester Role Selector -->
+            <div class="d-flex align-items-center gap-2">
+              <label
+                for="testerRoleSwitcher"
+                class="fs-xs fw-semibold text-muted text-uppercase tracking-wider d-none d-md-block"
+                >Role Switcher:</label
+              >
+              <select
+                class="form-select form-select-sm border-gold rounded-pill bg-light text-dark-blue fw-bold"
+                id="testerRoleSwitcher"
+                style="width: 150px"
+              >
+                <option value="client">Client</option>
+                <option value="advisor">Advisor</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+            <!-- Notification Badge -->
+            <button
+              class="btn btn-light position-relative rounded-circle shadow-sm"
+              style="width: 40px; height: 40px"
+              id="dummyNotificationBtn"
+            >
+              <i class="fa-regular fa-bell"></i>
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-white"
+                style="font-size: 0.65rem"
+              >
+                3
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dashboard Content Body -->
+        <div class="dashboard-content-body">
+          <div class="row">
+            <!-- Profile Session Data Banner -->
+            <div class="col-lg-4 col-md-5">
+              <div class="session-info-card">
+                <div class="session-info-title">
+                  <i class="fa-solid fa-key text-gold"></i> Session Credentials
+                  Card
+                </div>
+                <p class="fs-xs text-white-50 mb-3">
+                  Captured dynamically from the submitted login inputs for this
+                  dashboard session.
+                </p>
+                <div class="session-item">
+                  <span class="session-item-label">Logged Role:</span>
+                  <span
+                    class="session-item-value text-gold"
+                    id="sessionDataRole"
+                    >Business Advisor</span
+                  >
+                </div>
+                <div class="session-item">
+                  <span class="session-item-label">Email:</span>
+                  <span class="session-item-value" id="sessionDataEmail"
+                    >advisor@corporate.com</span
+                  >
+                </div>
+                <div class="session-item">
+                  <span class="session-item-label">Password:</span>
+                  <span
+                    class="session-item-value d-flex align-items-center gap-2"
+                  >
+                    <span id="sessionDataPasswordText">••••••••</span>
+                    <button
+                      class="btn btn-link text-gold p-0 fs-xs password-toggle"
+                      id="toggleSessionPassword"
+                      title="Toggle password visibility"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </span>
+                </div>
+                <div class="session-item">
+                  <span class="session-item-label">Remember Me:</span>
+                  <span class="session-item-value" id="sessionDataRememberMe"
+                    >Yes</span
+                  >
+                </div>
+                <div class="session-item border-top border-white-10 pt-2 mt-2">
+                  <span class="session-item-label">Access State:</span>
+                  <span class="session-item-value text-success"
+                    ><i class="fa-solid fa-shield-halved me-1"></i>
+                    Authorized</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Welcome Banner -->
+            <div class="col-lg-8 col-md-7 d-flex align-items-stretch">
+              <div
+                class="card border-0 shadow-sm w-100 mb-4 bg-dark-blue text-white overflow-hidden position-relative"
+              >
+                <div
+                  class="card-body p-4 p-xl-5 d-flex flex-column justify-content-between position-relative z-1"
+                >
+                  <div>
+                    <span
+                      class="badge bg-gold text-dark-blue fw-bold text-uppercase tracking-wider px-3 py-2 rounded-pill fs-xs mb-3"
+                      >Enterprise Suite</span
+                    >
+                    <h2
+                      class="fw-bold mb-2 Montserrat"
+                      id="welcomeUserGreeting"
+                    >
+                      Welcome Back, Advisor!
+                    </h2>
+                    <p class="text-white-50 fs-sm" id="welcomeUserDesc">
+                      Access live strategic analyses, monitor asset appraisal
+                      growth plans, and coordinate board meetings for your
+                      designated portfolios.
+                    </p>
+                  </div>
+                  <div class="mt-4 mt-lg-0">
+                    <button
+                      class="btn btn-gold rounded-pill px-4 py-2 text-uppercase tracking-wider fw-bold fs-xs shadow"
+                      id="dummyUpgradeBtn"
+                    >
+                      <i class="fa-solid fa-bolt me-2"></i>Request System
+                      Upgrade
+                    </button>
+                  </div>
+                </div>
+                <!-- Background decorative shapes -->
+                <div
+                  class="position-absolute end-0 bottom-0 opacity-10"
+                  style="
+                    font-size: 15rem;
+                    transform: translate(20%, 20%);
+                    pointer-events: none;
+                  "
+                >
+                  <i class="fa-solid fa-compass-drafting text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- CLIENT CONTENT SECTIONS -->
+          <!-- ============================================ -->
+          <div id="client-content-group" class="role-content-group d-none">
+            <!-- CLIENT TAB: OVERVIEW -->
+            <section
+              id="tab-client-overview"
+              class="dashboard-tab-content active"
+            >
+              <div class="row g-4 mb-4">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Active Initiatives</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          2 Projects
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-briefcase"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Advisory Sessions</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          14.5 Hours
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Roadmap Progress</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          82% Complete
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-spinner"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Next Board Review</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          Aug 28, 10:00
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-calendar-day"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">
+                        Recent Strategic Deliverables
+                      </h5>
+                      <span class="badge bg-light-custom text-dark-blue fs-xs"
+                        >Updated 1h ago</span
+                      >
+                    </div>
+                    <div class="custom-card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table custom-table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Deliverable Name</th>
+                              <th>Strategic Focus Area</th>
+                              <th>Due Date</th>
+                              <th>Approval Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="fw-semibold text-dark-blue">
+                                Brand Positioning & Audit Report
+                              </td>
+                              <td>Market Expansion & Strategy</td>
+                              <td>Aug 15, 2026</td>
+                              <td>
+                                <span class="status-badge status-approved"
+                                  >Approved</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="fw-semibold text-dark-blue">
+                                Operational Efficiency Review
+                              </td>
+                              <td>Corporate Restructuring</td>
+                              <td>Sep 01, 2026</td>
+                              <td>
+                                <span class="status-badge status-in-review"
+                                  >In Review</span
+                                >
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="fw-semibold text-dark-blue">
+                                Q3 Board Expansion Deck
+                              </td>
+                              <td>Executive Management</td>
+                              <td>Sep 10, 2026</td>
+                              <td>
+                                <span class="status-badge status-draft"
+                                  >Draft</span
+                                >
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">Active Growth Phases</h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <div class="timeline-flow">
+                        <div class="timeline-step complete">
+                          <span class="timeline-step-icon"
+                            ><i class="fa-solid fa-check"></i
+                          ></span>
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Phase 1: Discovery & Assets Valuation
+                          </h6>
+                          <p class="text-muted fs-xs mb-0">
+                            Completed corporate review of balance sheets and
+                            capitalization audits.
+                          </p>
+                        </div>
+                        <div class="timeline-step active">
+                          <span class="timeline-step-icon"
+                            ><i class="fa-solid fa-ellipsis"></i
+                          ></span>
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Phase 2: Operational Optimization
+                          </h6>
+                          <p class="text-muted fs-xs mb-0">
+                            Restructuring supply chain pipelines and updating
+                            standard corporate layouts.
+                          </p>
+                        </div>
+                        <div class="timeline-step">
+                          <span class="timeline-step-icon"
+                            ><i class="fa-solid fa-hourglass-start"></i
+                          ></span>
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Phase 3: Scaling & Global Transition
+                          </h6>
+                          <p class="text-muted fs-xs mb-0">
+                            Scheduled for Q1 2027. Raising series B capital and
+                            expanding client portals.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CLIENT TAB: MY ADVISORY TEAM -->
+            <section id="tab-client-team" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Dedicated Advisory Partners
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <div class="card border-0 shadow-sm text-center p-4">
+                    <div
+                      class="mx-auto rounded-circle overflow-hidden mb-3 bg-light-custom d-flex align-items-center justify-content-center"
+                      style="
+                        width: 100px;
+                        height: 100px;
+                        border: 3px solid var(--secondary-color);
+                      "
+                    >
+                      <i class="fa-solid fa-user-tie fa-3x text-dark-blue"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">Sarah Jenkins</h5>
+                    <span
+                      class="badge bg-gold text-dark-blue fw-bold fs-xs px-2 py-1 mb-3"
+                      >Lead Strategy Advisor</span
+                    >
+                    <p class="text-muted fs-sm">
+                      Over 15 years of consulting experience directing corporate
+                      restructuring and market entries for Fortune 500 entities.
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                      <button
+                        class="btn btn-primary-blue btn-sm rounded-pill px-3"
+                      >
+                        Message Advisor
+                      </button>
+                      <button
+                        class="btn btn-outline-gold btn-sm rounded-pill px-3"
+                      >
+                        Schedule Slot
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-0 shadow-sm text-center p-4">
+                    <div
+                      class="mx-auto rounded-circle overflow-hidden mb-3 bg-light-custom d-flex align-items-center justify-content-center"
+                      style="
+                        width: 100px;
+                        height: 100px;
+                        border: 3px solid var(--secondary-color);
+                      "
+                    >
+                      <i class="fa-solid fa-chart-pie fa-3x text-dark-blue"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">David Chen</h5>
+                    <span
+                      class="badge bg-gold text-dark-blue fw-bold fs-xs px-2 py-1 mb-3"
+                      >Financial Appraisals Partner</span
+                    >
+                    <p class="text-muted fs-sm">
+                      Chartered Financial Analyst advising on asset allocation
+                      models, investment capital routes, and debt refinancing
+                      metrics.
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                      <button
+                        class="btn btn-primary-blue btn-sm rounded-pill px-3"
+                      >
+                        Message Advisor
+                      </button>
+                      <button
+                        class="btn btn-outline-gold btn-sm rounded-pill px-3"
+                      >
+                        Schedule Slot
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-0 shadow-sm text-center p-4">
+                    <div
+                      class="mx-auto rounded-circle overflow-hidden mb-3 bg-light-custom d-flex align-items-center justify-content-center"
+                      style="
+                        width: 100px;
+                        height: 100px;
+                        border: 3px solid var(--secondary-color);
+                      "
+                    >
+                      <i
+                        class="fa-solid fa-graduation-cap fa-3x text-dark-blue"
+                      ></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">Amanda Ross</h5>
+                    <span
+                      class="badge bg-gold text-dark-blue fw-bold fs-xs px-2 py-1 mb-3"
+                      >Executive Operations Partner</span
+                    >
+                    <p class="text-muted fs-sm">
+                      Specializes in talent architecture, executive coaching
+                      models, leadership alignment workshops, and business team
+                      syncs.
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                      <button
+                        class="btn btn-primary-blue btn-sm rounded-pill px-3"
+                      >
+                        Message Advisor
+                      </button>
+                      <button
+                        class="btn btn-outline-gold btn-sm rounded-pill px-3"
+                      >
+                        Schedule Slot
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CLIENT TAB: STRATEGIC ROADMAPS -->
+            <section id="tab-client-roadmaps" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Milestone Roadmaps & Deliverable Timelines
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">
+                    Corporate Strategy Alignment - Roadmap Model 2026
+                  </h5>
+                  <span class="badge bg-dark-blue text-white fs-xs"
+                    >82% Process Health</span
+                  >
+                </div>
+                <div class="custom-card-body">
+                  <div class="row mb-4">
+                    <div class="col-12">
+                      <label class="fw-semibold text-dark-blue mb-1 fs-sm"
+                        >Platform Development & Process Implementation
+                        Progress:</label
+                      >
+                      <div
+                        class="progress rounded-pill bg-light"
+                        style="
+                          height: 24px;
+                          border: 1px solid rgba(0, 0, 0, 0.05);
+                        "
+                      >
+                        <div
+                          class="progress-bar bg-gold text-dark-blue fw-bold text-end pe-3"
+                          role="progressbar"
+                          style="width: 82%"
+                          aria-valuenow="82"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          82%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-flow mt-5">
+                    <div class="timeline-step complete">
+                      <span class="timeline-step-icon"
+                        ><i class="fa-solid fa-check"></i
+                      ></span>
+                      <div class="timeline-content-card shadow-sm">
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                        >
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Corporate Asset Evaluation & Data Mining
+                          </h6>
+                          <span class="badge bg-success text-white"
+                            >Q1 2026</span
+                          >
+                        </div>
+                        <p class="text-muted fs-xs mb-0 mt-1">
+                          Audit of internal team communication tools, server
+                          capacities, balance sheets, and client onboarding
+                          models. Complete signoff obtained on March 15.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="timeline-step active">
+                      <span class="timeline-step-icon"
+                        ><i class="fa-solid fa-spinner fa-spin"></i
+                      ></span>
+                      <div class="timeline-content-card shadow-sm">
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                        >
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Process Optimization & Team Structure Refinement
+                          </h6>
+                          <span class="badge bg-warning text-dark"
+                            >Q3-Q4 2026</span
+                          >
+                        </div>
+                        <p class="text-muted fs-xs mb-0 mt-1">
+                          Ongoing restructure of backend processes. Streamlining
+                          logistics frameworks. Migrating client portfolio
+                          management dashboards to Bootstrap responsive layouts.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="timeline-step">
+                      <span class="timeline-step-icon"
+                        ><i class="fa-solid fa-circle"></i
+                      ></span>
+                      <div class="timeline-content-card shadow-sm">
+                        <div
+                          class="d-flex justify-content-between align-items-center"
+                        >
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Strategic Scaling, Capital Raising, and Global
+                            Expansion
+                          </h6>
+                          <span class="badge bg-secondary text-white"
+                            >Q1-Q2 2027</span
+                          >
+                        </div>
+                        <p class="text-muted fs-xs mb-0 mt-1">
+                          Preparation of investor decks, financial models, and
+                          licensing paperwork. Introducing partners to UK,
+                          European, and APAC venture networks.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CLIENT TAB: FINANCIAL REPORTS -->
+            <section id="tab-client-financials" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Financial Appraisals & Advisory Budget Allocations
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">
+                    Fiscal Quarter Budget Allocations
+                  </h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table
+                      class="table custom-table table-striped table-hover text-nowrap"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Strategic Initiative</th>
+                          <th>Quarterly Budget</th>
+                          <th>Disbursed Funds</th>
+                          <th>Remaining Ledger</th>
+                          <th>Projected ROI</th>
+                          <th>Appraisal Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Market entry & expansion (EU Region)
+                          </td>
+                          <td>$120,000.00</td>
+                          <td>$95,000.00</td>
+                          <td>$25,000.00</td>
+                          <td>2.4x Multiplier</td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Disbursed</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Supply Chain & Operations Audit
+                          </td>
+                          <td>$45,000.00</td>
+                          <td>$45,000.00</td>
+                          <td>$0.00</td>
+                          <td>1.8x Multiplier</td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Disbursed</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Executive Management & Leadership Coaching
+                          </td>
+                          <td>$35,000.00</td>
+                          <td>$12,500.00</td>
+                          <td>$22,500.00</td>
+                          <td>3.0x Multiplier</td>
+                          <td>
+                            <span class="status-badge status-pending"
+                              >In Audits</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Securitization & Risk Hedging Structuring
+                          </td>
+                          <td>$60,000.00</td>
+                          <td>$0.00</td>
+                          <td>$60,000.00</td>
+                          <td>1.5x Multiplier</td>
+                          <td>
+                            <span class="status-badge status-draft"
+                              >Draft Ledger</span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CLIENT TAB: DOCUMENT VAULT -->
+            <section id="tab-client-documents" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Advisory Document Vault
+              </h4>
+
+              <div class="row g-4 mb-4">
+                <div class="col-lg-8">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">
+                        Shared Business Strategy Files
+                      </h5>
+                    </div>
+                    <div class="custom-card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table custom-table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Document File Name</th>
+                              <th>Strategic Category</th>
+                              <th>Revision</th>
+                              <th>Upload Date</th>
+                              <th>Size</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="fw-bold text-dark-blue">
+                                <i
+                                  class="fa-solid fa-file-pdf text-danger me-2"
+                                ></i
+                                >Q2_Corporate_Strategy_Final.pdf
+                              </td>
+                              <td>Strategic Report</td>
+                              <td>v2.1</td>
+                              <td>Jul 10, 2026</td>
+                              <td>4.8 MB</td>
+                              <td>
+                                <button
+                                  class="btn btn-outline-blue btn-xs px-2 py-1 rounded-pill"
+                                >
+                                  <i class="fa-solid fa-download"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold text-dark-blue">
+                                <i
+                                  class="fa-solid fa-file-excel text-success me-2"
+                                ></i
+                                >Fiscal_Restructuring_Model.xlsx
+                              </td>
+                              <td>Financial Model</td>
+                              <td>v1.4</td>
+                              <td>Aug 02, 2026</td>
+                              <td>12.3 MB</td>
+                              <td>
+                                <button
+                                  class="btn btn-outline-blue btn-xs px-2 py-1 rounded-pill"
+                                >
+                                  <i class="fa-solid fa-download"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="fw-bold text-dark-blue">
+                                <i
+                                  class="fa-solid fa-file-powerpoint text-warning me-2"
+                                ></i
+                                >Board_Meeting_Pitch_Q3.pptx
+                              </td>
+                              <td>Board Presentation</td>
+                              <td>v3.0</td>
+                              <td>Aug 18, 2026</td>
+                              <td>8.1 MB</td>
+                              <td>
+                                <button
+                                  class="btn btn-outline-blue btn-xs px-2 py-1 rounded-pill"
+                                >
+                                  <i class="fa-solid fa-download"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">
+                        Upload Strategic Document
+                      </h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <div class="upload-dropzone">
+                        <i
+                          class="fa-solid fa-cloud-arrow-up fa-3x text-gold mb-3"
+                        ></i>
+                        <h6>Drag & Drop File Here</h6>
+                        <p class="text-muted fs-xs mb-3">
+                          Supports PDF, XLSX, PPTX, or DOCX (Max 25MB)
+                        </p>
+                        <button
+                          class="btn btn-primary-blue btn-sm rounded-pill px-4"
+                        >
+                          Browse Files
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CLIENT TAB: SCHEDULE SESSION -->
+            <section id="tab-client-schedule" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Request Strategic Consultation Session
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header bg-dark-blue text-white">
+                  <h5 class="custom-card-title text-white">
+                    Advisory Appointment Form
+                  </h5>
+                </div>
+                <div class="custom-card-body">
+                  <form id="consultationBookingForm" novalidate>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label
+                          for="bookAdvisor"
+                          class="form-label fw-bold fs-xs text-dark-blue"
+                          >SELECT DEDICATED PARTNER</label
+                        >
+                        <select class="form-select" id="bookAdvisor" required>
+                          <option value="jenkins">
+                            Sarah Jenkins (Strategy Lead)
+                          </option>
+                          <option value="chen">
+                            David Chen (Finance Partner)
+                          </option>
+                          <option value="ross">
+                            Amanda Ross (Operations Partner)
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label
+                          for="bookService"
+                          class="form-label fw-bold fs-xs text-dark-blue"
+                          >CONSULTATION INTERVENTION TYPE</label
+                        >
+                        <select class="form-select" id="bookService" required>
+                          <option value="mergers">
+                            M&A Strategy Roundtable
+                          </option>
+                          <option value="balance">
+                            Fiscal Appraisal Audit Review
+                          </option>
+                          <option value="leadership">
+                            Executive Alignment Workshop
+                          </option>
+                          <option value="general">
+                            Ad hoc Strategy Review
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label
+                          for="bookDate"
+                          class="form-label fw-bold fs-xs text-dark-blue"
+                          >PREFERRED DATE</label
+                        >
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="bookDate"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <label
+                          for="bookTime"
+                          class="form-label fw-bold fs-xs text-dark-blue"
+                          >PREFERRED TIME SLOT</label
+                        >
+                        <select class="form-select" id="bookTime" required>
+                          <option value="morning">
+                            Morning (09:00 AM - 11:30 AM)
+                          </option>
+                          <option value="midday">
+                            Midday (12:00 PM - 02:30 PM)
+                          </option>
+                          <option value="afternoon">
+                            Afternoon (03:00 PM - 05:30 PM)
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          for="bookNotes"
+                          class="form-label fw-bold fs-xs text-dark-blue"
+                          >STRATEGIC SESSION CONTEXT & OBJECTIVES</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="bookNotes"
+                          rows="4"
+                          placeholder="Describe the objectives of the session, topics, and specific outcomes expected."
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="col-12 text-end">
+                        <button
+                          type="submit"
+                          class="btn btn-gold rounded-pill px-4 py-2 text-uppercase tracking-wider fw-bold fs-xs"
+                        >
+                          Schedule Consultation
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- ADVISOR CONTENT SECTIONS -->
+          <!-- ============================================ -->
+          <div id="advisor-content-group" class="role-content-group d-none">
+            <!-- ADVISOR TAB: OVERVIEW -->
+            <section
+              id="tab-advisor-overview"
+              class="dashboard-tab-content active"
+            >
+              <div class="row g-4 mb-4">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Clients Managed</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          12 Active
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-users"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Billed Hours (Mo)</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          148.5 hrs
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-clock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Program Health</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          92% On-Track
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Satisfaction Rate</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          4.9 / 5.0
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-star text-gold"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-7">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">Executive Action Items</h5>
+                    </div>
+                    <div class="custom-card-body p-0">
+                      <div class="list-group list-group-flush rounded-0">
+                        <div
+                          class="list-group-item p-3 d-flex justify-content-between align-items-start gap-3"
+                        >
+                          <input
+                            class="form-check-input mt-1"
+                            type="checkbox"
+                            id="task-1"
+                          />
+                          <div class="flex-grow-1">
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Review Q3 Financial Ledger for Acme solutions
+                            </h6>
+                            <p class="text-muted fs-xs mb-0">
+                              Crosscheck projected operational budget with
+                              remaining capital reserves.
+                            </p>
+                          </div>
+                          <span class="badge bg-danger">Today</span>
+                        </div>
+                        <div
+                          class="list-group-item p-3 d-flex justify-content-between align-items-start gap-3"
+                        >
+                          <input
+                            class="form-check-input mt-1"
+                            type="checkbox"
+                            id="task-2"
+                          />
+                          <div class="flex-grow-1">
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Draft Strategy Expansion Proposal for Zenith
+                              Holdings
+                            </h6>
+                            <p class="text-muted fs-xs mb-0">
+                              Develop market analysis frameworks and entry
+                              vectors for UK expansion.
+                            </p>
+                          </div>
+                          <span class="badge bg-warning text-dark"
+                            >Tomorrow</span
+                          >
+                        </div>
+                        <div
+                          class="list-group-item p-3 d-flex justify-content-between align-items-start gap-3"
+                        >
+                          <input
+                            class="form-check-input mt-1"
+                            type="checkbox"
+                            id="task-3"
+                          />
+                          <div class="flex-grow-1">
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Collate Feedback on Leadership Workshop for
+                              Vanguard Tech
+                            </h6>
+                            <p class="text-muted fs-xs mb-0">
+                              Consolidate survey scores and upload meeting
+                              briefs to document vaults.
+                            </p>
+                          </div>
+                          <span class="badge bg-secondary">Aug 28</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">Upcoming Briefings</h5>
+                    </div>
+                    <div class="custom-card-body p-0">
+                      <div class="list-group list-group-flush">
+                        <div class="list-group-item p-3 bg-light-custom">
+                          <span class="fw-bold text-gold fs-xs d-block mb-1"
+                            >09:00 AM - 10:30 AM</span
+                          >
+                          <h6 class="fw-bold text-dark-blue mb-1">
+                            Acme Solutions Q3 Strategic Review
+                          </h6>
+                          <p class="text-muted fs-xs mb-2">
+                            Location: Main Advisory Boardroom / Zoom
+                          </p>
+                          <div class="d-flex gap-2">
+                            <button
+                              class="btn btn-gold btn-xs px-3 rounded-pill fw-bold text-uppercase tracking-wide fs-xxs"
+                            >
+                              Join
+                            </button>
+                            <button
+                              class="btn btn-outline-blue btn-xs px-3 rounded-pill fw-bold text-uppercase tracking-wide fs-xxs"
+                            >
+                              Briefing Doc
+                            </button>
+                          </div>
+                        </div>
+                        <div class="list-group-item p-3">
+                          <span class="fw-bold text-muted fs-xs d-block mb-1"
+                            >11:30 AM - 12:30 PM</span
+                          >
+                          <h6 class="fw-semibold text-dark-blue mb-1">
+                            Apex Logistics Follow-up
+                          </h6>
+                          <p class="text-muted fs-xs mb-0">
+                            Topic: Supply Chain Audit Alignment
+                          </p>
+                        </div>
+                        <div class="list-group-item p-3">
+                          <span class="fw-bold text-muted fs-xs d-block mb-1"
+                            >02:00 PM - 04:00 PM</span
+                          >
+                          <h6 class="fw-semibold text-dark-blue mb-1">
+                            Vanguard Tech Coaching Session
+                          </h6>
+                          <p class="text-muted fs-xs mb-0">
+                            Focus Area: Operations & Staff Restructure
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADVISOR TAB: CLIENT PORTFOLIO -->
+            <section id="tab-advisor-portfolio" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Client Portfolio Roster
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">Assigned Client Accounts</h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table
+                      class="table custom-table table-striped table-hover text-nowrap"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Company Name</th>
+                          <th>Primary Corporate Contact</th>
+                          <th>Industry Vertical</th>
+                          <th>Advisory Tier</th>
+                          <th>Session Health</th>
+                          <th>Account Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Acme Solutions Corp
+                          </td>
+                          <td>Thomas Wayne</td>
+                          <td>Manufacturing & Supply</td>
+                          <td>
+                            <span
+                              class="badge bg-dark-blue text-white px-2 py-1 fs-xxs"
+                              >Enterprise</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Excellent</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-active"
+                              >Active</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Vanguard Tech Inc
+                          </td>
+                          <td>Linus Torvalds</td>
+                          <td>Software Development</td>
+                          <td>
+                            <span
+                              class="badge bg-gold text-dark-blue px-2 py-1 fs-xxs"
+                              >Platinum</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Excellent</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-active"
+                              >Active</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Apex Logistics Group
+                          </td>
+                          <td>Sarah Connor</td>
+                          <td>Transportation & Logistics</td>
+                          <td>
+                            <span
+                              class="badge bg-secondary text-white px-2 py-1 fs-xxs"
+                              >Gold Service</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-pending"
+                              >Critical Path</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-on-hold"
+                              >On Hold</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Zenith Holdings Ltd
+                          </td>
+                          <td>Bruce Banner</td>
+                          <td>Real Estate & Investment</td>
+                          <td>
+                            <span
+                              class="badge bg-dark-blue text-white px-2 py-1 fs-xxs"
+                              >Enterprise</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Excellent</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-active"
+                              >Active</span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADVISOR TAB: ADVISORY PROJECTS -->
+            <section id="tab-advisor-projects" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Active Advisory Initiatives
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                  <div class="card border-0 shadow-sm p-4">
+                    <span
+                      class="badge bg-dark-blue text-white align-self-start mb-2 px-2 py-1 fs-xxs"
+                      >Acme Solutions</span
+                    >
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Project Alpha: Supply Chain Redesign
+                    </h5>
+                    <p class="text-muted fs-sm mb-4">
+                      Restructuring operations frameworks, migrating supply
+                      routes, and auditing Q3 metrics.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center mt-auto border-top border-light-custom pt-3"
+                    >
+                      <span class="fs-xs fw-bold text-success"
+                        ><i class="fa-solid fa-circle-check"></i> On Track</span
+                      >
+                      <button class="btn btn-outline-blue btn-xs rounded-pill">
+                        Open Files
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="card border-0 shadow-sm p-4">
+                    <span
+                      class="badge bg-gold text-dark-blue align-self-start mb-2 px-2 py-1 fs-xxs"
+                      >Vanguard Tech</span
+                    >
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Project Beta: Talent Structure Refactoring
+                    </h5>
+                    <p class="text-muted fs-sm mb-4">
+                      Assessing team performance scales, defining executive
+                      roles, and coaching managers.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center mt-auto border-top border-light-custom pt-3"
+                    >
+                      <span class="fs-xs fw-bold text-success"
+                        ><i class="fa-solid fa-circle-check"></i> On Track</span
+                      >
+                      <button class="btn btn-outline-blue btn-xs rounded-pill">
+                        Open Files
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div class="card border-0 shadow-sm p-4">
+                    <span
+                      class="badge bg-dark-blue text-white align-self-start mb-2 px-2 py-1 fs-xxs"
+                      >Zenith Holdings</span
+                    >
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Project Gamma: Real Estate Venture Rollout
+                    </h5>
+                    <p class="text-muted fs-sm mb-4">
+                      Designing corporate investment materials, planning capital
+                      raising, and legal checks.
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center mt-auto border-top border-light-custom pt-3"
+                    >
+                      <span class="fs-xs fw-bold text-warning"
+                        ><i class="fa-solid fa-triangle-exclamation"></i>
+                        Delayed</span
+                      >
+                      <button class="btn btn-outline-blue btn-xs rounded-pill">
+                        Open Files
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADVISOR TAB: FINANCIAL APPRAISALS -->
+            <section id="tab-advisor-appraisals" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Advisor Billing Logs & Financial Appraisals
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">
+                    Consulting Hours Timesheet (Current Month)
+                  </h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table custom-table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Client Account</th>
+                          <th>Strategic Consulting Activity</th>
+                          <th>Billed Hours</th>
+                          <th>Hourly Rate</th>
+                          <th>Total Appraisal Invoice</th>
+                          <th>Invoice Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Acme Solutions Corp
+                          </td>
+                          <td>Board Advisory Roundtable Meeting</td>
+                          <td>12.0 hours</td>
+                          <td>$350.00 / hr</td>
+                          <td>$4,200.00</td>
+                          <td>
+                            <span class="status-badge status-paid"
+                              >Settled</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Vanguard Tech Inc
+                          </td>
+                          <td>Strategic Roadmap Development & Auditing</td>
+                          <td>25.0 hours</td>
+                          <td>$300.00 / hr</td>
+                          <td>$7,500.00</td>
+                          <td>
+                            <span class="status-badge status-pending"
+                              >Pending Approval</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Apex Logistics Group
+                          </td>
+                          <td>Supply Chain Operations Workshop Session</td>
+                          <td>8.5 hours</td>
+                          <td>$300.00 / hr</td>
+                          <td>$2,550.00</td>
+                          <td>
+                            <span class="status-badge status-paid"
+                              >Settled</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-dark-blue">
+                            Zenith Holdings Ltd
+                          </td>
+                          <td>Portfolio Refinancing Appraisal</td>
+                          <td>14.0 hours</td>
+                          <td>$350.00 / hr</td>
+                          <td>$4,900.00</td>
+                          <td>
+                            <span class="status-badge status-overdue"
+                              >Past Due</span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADVISOR TAB: PERFORMANCE REPORTS -->
+            <section id="tab-advisor-performance" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Advisory Performance Analytics
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">
+                        Key Performance Indicators
+                      </h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >CLIENTRETENTION RATE</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >98%</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-gold"
+                            style="width: 98%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >MILESTONEDELIVERY ACCURACY</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >94%</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-primary-blue"
+                            style="width: 94%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="mb-0">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >ADVISORY SCORE RATINGS</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >96%</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-success"
+                            style="width: 96%"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">Recent Client Reviews</h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <blockquote
+                        class="blockquote fs-sm text-muted mb-3 border-start ps-3 border-gold border-3"
+                      >
+                        <p class="mb-1">
+                          "The supply chain optimization advice restructured our
+                          operations completely, unlocking 14% extra margin."
+                        </p>
+                        <footer class="blockquote-footer fs-xs mt-1">
+                          Thomas Wayne, Acme Solutions Corp
+                        </footer>
+                      </blockquote>
+                      <blockquote
+                        class="blockquote fs-sm text-muted mb-0 border-start ps-3 border-gold border-3"
+                      >
+                        <p class="mb-1">
+                          "Sarah's executive workshops alignment brought our
+                          lead management team together during crucial
+                          expansion."
+                        </p>
+                        <footer class="blockquote-footer fs-xs mt-1">
+                          Linus Torvalds, Vanguard Tech Inc
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADVISOR TAB: ADVISORY CALENDAR -->
+            <section id="tab-advisor-calendar" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Advisory Calendar Overview
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header bg-dark-blue text-white">
+                  <h5 class="custom-card-title text-white">
+                    Weekly Calendar Timeline
+                  </h5>
+                </div>
+                <div class="custom-card-body">
+                  <div class="row text-center g-2 mb-4">
+                    <div class="col">
+                      <div class="p-2 border rounded bg-light-custom">
+                        <span class="d-block fs-xs text-muted">MON</span>
+                        <span class="fw-bold text-dark-blue fs-sm">Aug 24</span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div
+                        class="p-2 border border-gold rounded bg-dark-blue text-white"
+                      >
+                        <span class="d-block fs-xs text-gold fw-bold">TUE</span>
+                        <span class="fw-bold text-white fs-sm">Aug 25</span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded bg-light-custom">
+                        <span class="d-block fs-xs text-muted">WED</span>
+                        <span class="fw-bold text-dark-blue fs-sm">Aug 26</span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded bg-light-custom">
+                        <span class="d-block fs-xs text-muted">THU</span>
+                        <span class="fw-bold text-dark-blue fs-sm">Aug 27</span>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="p-2 border rounded bg-light-custom">
+                        <span class="d-block fs-xs text-muted">FRI</span>
+                        <span class="fw-bold text-dark-blue fs-sm">Aug 28</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="booking-calendar-box mb-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="badge bg-gold text-dark-blue fw-bold fs-xxs"
+                          >09:00 AM - 10:30 AM</span
+                        >
+                        <h6 class="fw-bold text-dark-blue mb-0 mt-1">
+                          Acme Solutions Q3 Strategic Review
+                        </h6>
+                      </div>
+                      <span class="status-badge status-approved"
+                        >Scheduled</span
+                      >
+                    </div>
+                  </div>
+                  <div class="booking-calendar-box mb-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="badge bg-gold text-dark-blue fw-bold fs-xxs"
+                          >11:30 AM - 12:30 PM</span
+                        >
+                        <h6 class="fw-bold text-dark-blue mb-0 mt-1">
+                          Apex Logistics Supply Chain Follow-up
+                        </h6>
+                      </div>
+                      <span class="status-badge status-approved"
+                        >Scheduled</span
+                      >
+                    </div>
+                  </div>
+                  <div class="booking-calendar-box">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="badge bg-gold text-dark-blue fw-bold fs-xxs"
+                          >02:00 PM - 04:00 PM</span
+                        >
+                        <h6 class="fw-bold text-dark-blue mb-0 mt-1">
+                          Vanguard Tech Executive Alignment Session
+                        </h6>
+                      </div>
+                      <span class="status-badge status-approved"
+                        >Scheduled</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- ADMINISTRATOR CONTENT SECTIONS -->
+          <!-- ============================================ -->
+          <div id="admin-content-group" class="role-content-group d-none">
+            <!-- ADMIN TAB: OVERVIEW -->
+            <section
+              id="tab-admin-overview"
+              class="dashboard-tab-content active"
+            >
+              <div class="row g-4 mb-4">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Total Portals</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          256 active
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-server"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Advisors Staff</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          34 partners
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-user-gear"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >Revenue (Mo)</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          $324,500
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card metric-card accent-gold p-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <div>
+                        <span
+                          class="text-muted fs-xs text-uppercase tracking-wider"
+                          >System Status</span
+                        >
+                        <h3 class="fw-bold text-dark-blue mb-0 mt-1">
+                          99.98% Up
+                        </h3>
+                      </div>
+                      <div class="metric-card-icon">
+                        <i class="fa-solid fa-circle-nodes text-success"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">System Console Settings</h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <div class="d-grid gap-3">
+                        <div
+                          class="p-3 border rounded d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Backup Database Files
+                            </h6>
+                            <span class="text-muted fs-xs"
+                              >Last backup performed Aug 25 at 04:00 AM</span
+                            >
+                          </div>
+                          <button
+                            class="btn btn-primary-blue btn-sm rounded-pill px-3"
+                          >
+                            Run Backup
+                          </button>
+                        </div>
+                        <div
+                          class="p-3 border rounded d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Clear Application Cache
+                            </h6>
+                            <span class="text-muted fs-xs"
+                              >System caches (CSS, asset paths, HTML
+                              components)</span
+                            >
+                          </div>
+                          <button
+                            class="btn btn-outline-gold btn-sm rounded-pill px-3"
+                          >
+                            Purge Cache
+                          </button>
+                        </div>
+                        <div
+                          class="p-3 border rounded d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h6 class="fw-bold text-dark-blue mb-1">
+                              Audit Ledger Integrity
+                            </h6>
+                            <span class="text-muted fs-xs"
+                              >Verify encrypted document hashes and billing
+                              journals</span
+                            >
+                          </div>
+                          <button
+                            class="btn btn-outline-blue btn-sm rounded-pill px-3"
+                          >
+                            Verify Logs
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card custom-card">
+                    <div class="custom-card-header">
+                      <h5 class="custom-card-title">Server Metrics</h5>
+                    </div>
+                    <div class="custom-card-body">
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >CPU ALLOCATION CAPACITY</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >42% Utilization</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-success"
+                            style="width: 42%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >MEMORY BUFFER CAPACITY</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >65% Utilization</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-warning"
+                            style="width: 65%"
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="mb-0">
+                        <div class="d-flex justify-content-between mb-1">
+                          <span class="fs-xs fw-bold text-dark-blue"
+                            >API ROUTING REQUESTS</span
+                          >
+                          <span class="fs-xs fw-bold text-primary-blue"
+                            >95% Healthy</span
+                          >
+                        </div>
+                        <div class="progress rounded-pill" style="height: 10px">
+                          <div
+                            class="progress-bar bg-gold"
+                            style="width: 95%"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADMIN TAB: USER MANAGEMENT -->
+            <section id="tab-admin-users" class="dashboard-tab-content">
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <h4 class="fw-bold text-dark-blue mb-0">
+                  System User Directory
+                </h4>
+                <button
+                  class="btn btn-gold btn-sm rounded-pill px-3 fw-bold text-uppercase tracking-wider fs-xs"
+                >
+                  <i class="fa-solid fa-plus me-1"></i>Add Account
+                </button>
+              </div>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">
+                    Registered Accounts Directory
+                  </h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table custom-table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Account ID</th>
+                          <th>User Full Name</th>
+                          <th>Registered Email</th>
+                          <th>System Role</th>
+                          <th>Status</th>
+                          <th>Registered Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">USR-84920</td>
+                          <td>John Client</td>
+                          <td>client@stackly.com</td>
+                          <td>
+                            <span
+                              class="badge bg-secondary text-white px-2 py-1 fs-xxs"
+                              >Client</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Active</span
+                            >
+                          </td>
+                          <td>Jan 12, 2026</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">USR-38291</td>
+                          <td>Sarah Jenkins</td>
+                          <td>advisor@stackly.com</td>
+                          <td>
+                            <span
+                              class="badge bg-gold text-dark-blue px-2 py-1 fs-xxs"
+                              >Advisor</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Active</span
+                            >
+                          </td>
+                          <td>Feb 20, 2026</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">USR-10928</td>
+                          <td>Super Administrator</td>
+                          <td>admin@stackly.com</td>
+                          <td>
+                            <span
+                              class="badge bg-dark-blue text-white px-2 py-1 fs-xxs"
+                              >Admin</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Active</span
+                            >
+                          </td>
+                          <td>Jan 01, 2026</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">USR-47201</td>
+                          <td>Mark Spencer</td>
+                          <td>mspencer@gmail.com</td>
+                          <td>
+                            <span
+                              class="badge bg-secondary text-white px-2 py-1 fs-xxs"
+                              >Client</span
+                            >
+                          </td>
+                          <td>
+                            <span class="status-badge status-pending"
+                              >Pending Approval</span
+                            >
+                          </td>
+                          <td>Aug 24, 2026</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADMIN TAB: CONSULTING SERVICES -->
+            <section id="tab-admin-services" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Manage Consulting Offerings
+              </h4>
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card border-0 shadow-sm p-4 text-center">
+                    <div class="fs-1 text-gold mb-3">
+                      <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Strategic Alignment Suite
+                    </h5>
+                    <p class="text-muted fs-xs mb-3">
+                      Enterprise framework consulting and corporate setup.
+                    </p>
+                    <span class="d-block fw-bold text-dark-blue mb-3"
+                      >$15,000.00 / month</span
+                    >
+                    <button
+                      class="btn btn-outline-blue btn-xs w-100 rounded-pill"
+                    >
+                      Configure Package
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card border-0 shadow-sm p-4 text-center">
+                    <div class="fs-1 text-gold mb-3">
+                      <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Operations Optimization
+                    </h5>
+                    <p class="text-muted fs-xs mb-3">
+                      Supply chain restructure and efficiency reports.
+                    </p>
+                    <span class="d-block fw-bold text-dark-blue mb-3"
+                      >$25,000.00 / month</span
+                    >
+                    <button
+                      class="btn btn-outline-blue btn-xs w-100 rounded-pill"
+                    >
+                      Configure Package
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card border-0 shadow-sm p-4 text-center">
+                    <div class="fs-1 text-gold mb-3">
+                      <i class="fa-solid fa-ranking-star"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Executive Coaching
+                    </h5>
+                    <p class="text-muted fs-xs mb-3">
+                      1-on-1 advisor sessions for director alignment.
+                    </p>
+                    <span class="d-block fw-bold text-dark-blue mb-3"
+                      >$10,000.00 / month</span
+                    >
+                    <button
+                      class="btn btn-outline-blue btn-xs w-100 rounded-pill"
+                    >
+                      Configure Package
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card border-0 shadow-sm p-4 text-center">
+                    <div class="fs-1 text-gold mb-3">
+                      <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark-blue mb-1">
+                      Mergers & Acquisitions
+                    </h5>
+                    <p class="text-muted fs-xs mb-3">
+                      Audits, legal checkups, and assets valuation.
+                    </p>
+                    <span class="d-block fw-bold text-dark-blue mb-3"
+                      >$45,000.00 flat fee</span
+                    >
+                    <button
+                      class="btn btn-outline-blue btn-xs w-100 rounded-pill"
+                    >
+                      Configure Package
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADMIN TAB: SYSTEM ANALYTICS -->
+            <section id="tab-admin-analytics" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Platform Database & Analytics Dashboard
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">Live System Logs</h5>
+                  <span class="badge bg-success text-white"
+                    >Online & Healthy</span
+                  >
+                </div>
+                <div class="custom-card-body">
+                  <div
+                    class="p-3 bg-dark text-light-custom rounded font-monospace fs-xs"
+                    style="max-height: 300px; overflow-y: auto"
+                  >
+                    <div>
+                      [2026-08-25 11:42:01] INFO: Initializing application
+                      server daemon. OK.
+                    </div>
+                    <div>
+                      [2026-08-25 11:43:12] DEBUG: Connecting to main database
+                      client... OK.
+                    </div>
+                    <div>
+                      [2026-08-25 11:44:00] INFO: Server listening on TCP port
+                      443. SSL loaded.
+                    </div>
+                    <div>
+                      [2026-08-25 11:50:33] INFO: User USR-84920 accessed
+                      document vault endpoint. Authorization OK.
+                    </div>
+                    <div>
+                      [2026-08-25 12:00:15] WARNING: Disk space usage exceeds
+                      warning threshold (82% allocated).
+                    </div>
+                    <div>
+                      [2026-08-25 12:02:11] INFO: Administrator generated
+                      quarterly audit ledger reports. CSV export OK.
+                    </div>
+                    <div class="text-gold animate-pulse">
+                      [2026-08-25 12:05:39] INFO: Session active. Directing
+                      requests to UI theme router.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADMIN TAB: INVOICES & BILLING -->
+            <section id="tab-admin-billing" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                System Invoices & Ledger Journals
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">Ledger Journal List</h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table custom-table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Invoice ID</th>
+                          <th>Client Account</th>
+                          <th>Assigned Advisor</th>
+                          <th>Issue Date</th>
+                          <th>Billed Amount</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">
+                            INV-2026-001
+                          </td>
+                          <td>Acme Solutions Corp</td>
+                          <td>Sarah Jenkins</td>
+                          <td>Aug 01, 2026</td>
+                          <td>$15,000.00</td>
+                          <td>
+                            <span class="status-badge status-paid">Paid</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">
+                            INV-2026-002
+                          </td>
+                          <td>Vanguard Tech Inc</td>
+                          <td>David Chen</td>
+                          <td>Aug 05, 2026</td>
+                          <td>$25,000.00</td>
+                          <td>
+                            <span class="status-badge status-unpaid"
+                              >Unpaid</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">
+                            INV-2026-003
+                          </td>
+                          <td>Apex Logistics Group</td>
+                          <td>Amanda Ross</td>
+                          <td>Aug 10, 2026</td>
+                          <td>$10,000.00</td>
+                          <td>
+                            <span class="status-badge status-paid">Paid</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold text-primary-blue">
+                            INV-2026-004
+                          </td>
+                          <td>Zenith Holdings Ltd</td>
+                          <td>David Chen</td>
+                          <td>Aug 12, 2026</td>
+                          <td>$15,000.00</td>
+                          <td>
+                            <span class="status-badge status-overdue"
+                              >Overdue</span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ADMIN TAB: SETTINGS & AUDIT LOGS -->
+            <section id="tab-admin-logs" class="dashboard-tab-content">
+              <h4 class="fw-bold text-dark-blue mb-4">
+                Security Configurations & Admin Audit Logs
+              </h4>
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">Security & Platform Configs</h5>
+                </div>
+                <div class="custom-card-body">
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="secSwitch1"
+                          checked
+                        />
+                        <label
+                          class="form-check-label text-dark-blue fw-bold fs-xs"
+                          for="secSwitch1"
+                          >ENFORCE MULTI-FACTOR AUTHENTICATION</label
+                        >
+                        <p class="text-muted fs-xxs">
+                          Requires MFA codes for all executive advisors and
+                          administrator login panels.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="secSwitch2"
+                          checked
+                        />
+                        <label
+                          class="form-check-label text-dark-blue fw-bold fs-xs"
+                          for="secSwitch2"
+                          >ENCRYPT DOCUMENT VAULTS BY DEFAULT</label
+                        >
+                        <p class="text-muted fs-xxs">
+                          Automatically wraps uploaded strategic spreadsheets
+                          and PDFs in AES-256 blocks.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card custom-card">
+                <div class="custom-card-header">
+                  <h5 class="custom-card-title">
+                    Administrator Security Audit Logs
+                  </h5>
+                </div>
+                <div class="custom-card-body p-0">
+                  <div class="table-responsive">
+                    <table
+                      class="table custom-table table-striped table-hover text-nowrap"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Timestamp</th>
+                          <th>Administrator</th>
+                          <th>Action Triggered</th>
+                          <th>Affected Resource</th>
+                          <th>Severity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2026-08-25 11:20:14</td>
+                          <td class="fw-semibold">admin@stackly.com</td>
+                          <td>Modified Consulting Package Price</td>
+                          <td>Pkg-StrategicAlignment</td>
+                          <td>
+                            <span class="status-badge status-medium"
+                              >Medium</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2026-08-25 10:15:33</td>
+                          <td class="fw-semibold">admin@stackly.com</td>
+                          <td>Approved New Client Account</td>
+                          <td>USR-47201 (Mark Spencer)</td>
+                          <td>
+                            <span class="status-badge status-approved"
+                              >Low</span
+                            >
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2026-08-25 09:02:11</td>
+                          <td class="fw-semibold">admin@stackly.com</td>
+                          <td>Exported Billing Journal ledger CSV</td>
+                          <td>Billing-System-Leasing</td>
+                          <td>
+                            <span class="status-badge status-high"
+                              >High Alert</span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div
+      class="modal fade"
+      id="bookingConfirmModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-dark-blue text-white">
+            <h5
+              class="modal-title fw-bold text-white Montserrat"
+              id="bookingModalTitle"
+            >
+              <i class="fa-solid fa-circle-check text-gold me-2"></i
+              >Consultation Request Sent
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center p-4">
+            <div
+              class="mx-auto rounded-circle bg-light-custom d-flex align-items-center justify-content-center mb-3"
+              style="
+                width: 70px;
+                height: 70px;
+                border: 2px solid var(--secondary-color);
+              "
+            >
+              <i class="fa-solid fa-calendar-check fa-2x text-dark-blue"></i>
+            </div>
+            <h5 class="fw-bold text-dark-blue" id="bookingModalHeadline">
+              Meeting Proposal Logged
+            </h5>
+            <p class="text-muted fs-sm" id="bookingModalText">
+              Your strategic advisory session has been submitted to the partner
+              team. We will review your context parameters and confirm the
+              calendar schedule within 1 hour.
+            </p>
+            <button
+              type="button"
+              class="btn btn-gold rounded-pill px-4"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DASHBOARD CONTROLLER & ROUTER JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- 1. SESSION MANAGEMENT & ROLE CHECKS ---
+        let currentRole = sessionStorage.getItem("userRole");
+        let currentEmail = sessionStorage.getItem("userEmail");
+        let currentPassword = sessionStorage.getItem("userPassword");
+        let currentRememberMe = sessionStorage.getItem("userRememberMe");
+
+        const authOverlay = document.getElementById("authRedirectOverlay");
+
+        // Force redirect if not logged in (to prevent bypass of login form data requirement)
+        if (!currentRole || !currentEmail) {
+          authOverlay.classList.remove("d-none");
+          setTimeout(function () {
+            window.location.href = "login.html";
+          }, 2000);
+          return;
+        }
+
+        // --- 2. UPDATE INITIAL DASHBOARD ELEMENTS BASED ON ROLE ---
+        initializeRoleView(currentRole);
+
+        // Synchronize Tester Role Switcher in UI
+        const roleSwitcherSelect =
+          document.getElementById("testerRoleSwitcher");
+        roleSwitcherSelect.value = currentRole;
+
+        roleSwitcherSelect.addEventListener("change", function () {
+          const selectedRole = this.value;
+          // Store new role and reinitialize view (useful for review/demo purposes)
+          sessionStorage.setItem("userRole", selectedRole);
+          initializeRoleView(selectedRole);
+        });
+
+        // --- 3. DYNAMIC RENDERING FUNCTION ---
+        function initializeRoleView(role) {
+          // Hide all content groups first
+          document.querySelectorAll(".role-content-group").forEach((group) => {
+            group.classList.add("d-none");
+          });
+
+          // Hide all sidebar menu sections
+          document.getElementById("sidebar-client").classList.add("d-none");
+          document.getElementById("sidebar-advisor").classList.add("d-none");
+          document.getElementById("sidebar-admin").classList.add("d-none");
+
+          // Show specific role group and menu
+          let activeGroup = null;
+          let activeSidebar = null;
+
+          if (role === "client") {
+            activeGroup = document.getElementById("client-content-group");
+            activeSidebar = document.getElementById("sidebar-client");
+
+            // Header Greetings
+            document.getElementById("profileUserBadge").innerText =
+              "Client Portal";
+            document.getElementById("sessionDataRole").innerText = "Client";
+            document.getElementById("welcomeUserGreeting").innerText =
+              "Welcome Back, Chief Executive!";
+            document.getElementById("welcomeUserDesc").innerText =
+              "Access your strategic expansion roadmap milestone audits, check consulting allocation budgets, download vault documents, and book direct sessions.";
+          } else if (role === "advisor") {
+            activeGroup = document.getElementById("advisor-content-group");
+            activeSidebar = document.getElementById("sidebar-advisor");
+
+            // Header Greetings
+            document.getElementById("profileUserBadge").innerText =
+              "Business Advisor";
+            document.getElementById("sessionDataRole").innerText =
+              "Business Advisor";
+            document.getElementById("welcomeUserGreeting").innerText =
+              "Welcome Back, Advisor!";
+            document.getElementById("welcomeUserDesc").innerText =
+              "Access live strategic analyses, monitor asset appraisal growth plans, and coordinate board meetings for your designated portfolios.";
+          } else if (role === "admin") {
+            activeGroup = document.getElementById("admin-content-group");
+            activeSidebar = document.getElementById("sidebar-admin");
+
+            // Header Greetings
+            document.getElementById("profileUserBadge").innerText =
+              "System Admin";
+            document.getElementById("sessionDataRole").innerText =
+              "Administrator";
+            document.getElementById("welcomeUserGreeting").innerText =
+              "System Console Portal";
+            document.getElementById("welcomeUserDesc").innerText =
+              "Manage user portal authorizations, audit activity log trails, configure service packaging plans, and monitor system resources.";
+          }
+
+          if (activeGroup) activeGroup.classList.remove("d-none");
+          if (activeSidebar) activeSidebar.classList.remove("d-none");
+
+          // Fill user email details in profile header
+          const userEmail =
+            sessionStorage.getItem("userEmail") || "user@stackly.com";
+          document.getElementById("profileUserEmail").innerText = userEmail;
+          document.getElementById("profileAvatarLetter").innerText = userEmail
+            .charAt(0)
+            .toUpperCase();
+
+          // Fill Session Info Panel
+          document.getElementById("sessionDataEmail").innerText = userEmail;
+          document.getElementById("sessionDataRememberMe").innerText =
+            sessionStorage.getItem("userRememberMe") || "No";
+
+          const passwordVal =
+            sessionStorage.getItem("userPassword") || "••••••••";
+          const passToggleBtn = document.getElementById(
+            "toggleSessionPassword",
+          );
+
+          // Clear any dynamic password state
+          document.getElementById("sessionDataPasswordText").innerText =
+            "••••••••";
+          passToggleBtn.querySelector("i").className = "fa-regular fa-eye";
+
+          // Activate default tab (Overview) for the role
+          const defaultTabMenu =
+            activeSidebar.querySelector(".sidebar-menu-item");
+          activateTab(defaultTabMenu);
+        }
+
+        // --- 4. SIDEBAR NAVIGATION CONTROLS (TAB TABS INTERACTION) ---
+        document.querySelectorAll(".sidebar-menu-item").forEach((item) => {
+          item.addEventListener("click", function (e) {
+            e.preventDefault();
+            activateTab(this);
+
+            // Auto close sidebar on mobile after choosing item
+            if (window.innerWidth < 992) {
+              document
+                .getElementById("sidebar")
+                .classList.remove("show-sidebar");
+            }
+          });
+        });
+
+        function activateTab(tabMenuItem) {
+          if (!tabMenuItem) return;
+
+          const menuContainer = tabMenuItem.closest(".sidebar-menu");
+
+          // Remove active state from current menu
+          menuContainer
+            .querySelectorAll(".sidebar-menu-item")
+            .forEach((item) => {
+              item.classList.remove("active");
+            });
+
+          // Add active state to clicked menu
+          tabMenuItem.classList.add("active");
+
+          const tabName = tabMenuItem.getAttribute("data-tab");
+
+          // Hide all tabs within the active content group
+          const targetSection = document.getElementById("tab-" + tabName);
+          if (targetSection) {
+            const groupContainer = targetSection.closest(".role-content-group");
+            groupContainer
+              .querySelectorAll(".dashboard-tab-content")
+              .forEach((section) => {
+                section.classList.remove("active");
+              });
+            targetSection.classList.add("active");
+          }
+        }
+
+        // --- 5. INTERACTIVE PASSWORD TOGGLE IN SESSION CARD ---
+        const togglePassBtn = document.getElementById("toggleSessionPassword");
+        togglePassBtn.addEventListener("click", function () {
+          const passField = document.getElementById("sessionDataPasswordText");
+          const eyeIcon = this.querySelector("i");
+          const actualPassword = sessionStorage.getItem("userPassword") || "";
+
+          if (passField.innerText === "••••••••") {
+            passField.innerText = actualPassword;
+            eyeIcon.className = "fa-regular fa-eye-slash";
+          } else {
+            passField.innerText = "••••••••";
+            eyeIcon.className = "fa-regular fa-eye";
+          }
+        });
+
+        // --- 6. SIDEBAR TOGGLE ON MOBILE ---
+        const sidebar = document.getElementById("sidebar");
+        const toggleBtn = document.getElementById("sidebarToggle");
+        const closeBtn = document.getElementById("sidebarCloseBtn");
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", function () {
+            sidebar.classList.add("show-sidebar");
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function () {
+            sidebar.classList.remove("show-sidebar");
+          });
+        }
+
+        // --- 7. APPOINTMENT FORM ACTION ---
+        const bookingForm = document.getElementById("consultationBookingForm");
+        if (bookingForm) {
+          bookingForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Check form validity
+            let valid = true;
+            this.querySelectorAll("[required]").forEach((inp) => {
+              if (!inp.value.trim()) {
+                inp.classList.add("is-invalid");
+                valid = false;
+              } else {
+                inp.classList.remove("is-invalid");
+              }
+            });
+
+            if (valid) {
+              const selectedDate = document.getElementById("bookDate").value;
+              const selectedAdvisorSelect =
+                document.getElementById("bookAdvisor");
+              const advisorName =
+                selectedAdvisorSelect.options[
+                  selectedAdvisorSelect.selectedIndex
+                ].text;
+
+              document.getElementById("bookingModalHeadline").innerText =
+                "Roundtable Meeting Proposal Logged";
+              document.getElementById("bookingModalText").innerText =
+                `Your request to consult with ${advisorName} on ${selectedDate} has been logged. We will review your context notes and update your dashboard calendar slots shortly.`;
+
+              // Trigger bootstrap modal
+              const confirmModal = new bootstrap.Modal(
+                document.getElementById("bookingConfirmModal"),
+              );
+              confirmModal.show();
+              this.reset();
+            }
+          });
+        }
+
+        // --- 8. LOGOUT HANDLER ---
+        document
+          .getElementById("logoutBtn")
+          .addEventListener("click", function () {
+            // Clear current session entries
+            sessionStorage.removeItem("userRole");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userPassword");
+            sessionStorage.removeItem("userRememberMe");
+
+            window.location.href = "login.html";
+          });
+
+        // --- 9. INTERCEPT EMPTY LINKS AND DUMMY BUTTONS FOR 404 REDIRECT ---
+        document.addEventListener("click", function (event) {
+          // A. Intercept links
+          const link = event.target.closest("a");
+          if (link) {
+            const href = link.getAttribute("href");
+            if (href === "" || href === "#" || !href) {
+              event.preventDefault();
+              window.location.href = "../404.html";
+              return;
+            }
+          }
+
+          // B. Intercept buttons
+          const button = event.target.closest("button");
+          if (button) {
+            // Check for buttons we should let function normally:
+            if (
+              button.classList.contains("logout-btn") ||
+              button.classList.contains("sidebar-toggle-btn") ||
+              button.classList.contains("password-toggle") ||
+              button.hasAttribute("data-bs-toggle") ||
+              button.hasAttribute("data-bs-dismiss") ||
+              button.id === "sidebarCloseBtn" ||
+              button.type === "submit"
+            ) {
+              return;
+            }
+            // All other unhandled/empty dashboard buttons will trigger a redirect to the 404 page
+            event.preventDefault();
+            window.location.href = "../404.html";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

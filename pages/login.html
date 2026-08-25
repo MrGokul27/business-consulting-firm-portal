@@ -357,8 +357,17 @@
           }
 
           if (formValid) {
-            // Success login mock
-            window.location.href = "../index.html";
+            // Save login credentials to sessionStorage for dynamic dashboard rendering
+            sessionStorage.setItem("userRole", roleSelect.value);
+            sessionStorage.setItem("userEmail", emailInput.value);
+            sessionStorage.setItem("userPassword", passwordInput.value);
+            sessionStorage.setItem(
+              "userRememberMe",
+              rememberMeCheck.checked ? "Yes" : "No",
+            );
+
+            // Redirect to dashboard page
+            window.location.href = "dashboard.html";
           }
         });
 

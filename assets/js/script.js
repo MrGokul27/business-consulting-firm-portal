@@ -72,7 +72,10 @@ function loadComponents() {
         el.outerHTML = html
           .replace(/\{\{BASE\}\}/g, base)
           .replace(/\{\{PAGES\}\}/g, pages);
-        if (file === "header.html") highlightActiveLink();
+        if (file === "header.html") {
+          highlightActiveLink();
+          updateHeaderForLoggedInUser(pages);
+        }
         if (file === "footer.html") {
           const scrollToTopBtn = document.getElementById("scrollToTop");
           if (scrollToTopBtn) {
@@ -318,4 +321,20 @@ function initializePortfolioFilters() {
       });
     });
   });
+}
+
+/**
+ * Updates the header navigation button for logged-in sessions.
+ */
+function updateHeaderForLoggedInUser(pages) {
+  const userRole = sessionStorage.getItem("userRole");
+  const userEmail = sessionStorage.getItem("userEmail");
+  if (userRole && userEmail) {
+    const btnTalk = document.querySelector(".btn-talk");
+    if (btnTalk) {
+      btnTalk.setAttribute("href", pages + "dashboard.html");
+      btnTalk.innerHTML =
+        '<i class="fa-solid fa-gauge-high me-1"></i> Dashboard';
+    }
+  }
 }
