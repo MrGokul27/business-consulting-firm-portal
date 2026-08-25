@@ -105,6 +105,7 @@
                     type="text"
                     class="form-control"
                     id="username"
+                    maxlength="16"
                     placeholder="e.g. John Doe (letters & spaces only)"
                     required
                   />
@@ -485,7 +486,6 @@
 
           if (formValid) {
             // Success registration redirect
-            alert("Registration successful! Redirecting to login page...");
             window.location.href = "login.html";
           }
         });

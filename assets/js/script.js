@@ -179,9 +179,6 @@ function initializeForms() {
         const formAction = form.getAttribute("action");
         if (formAction === "#") {
           event.preventDefault();
-          alert(
-            "Thank you for your message! Our business advisors will reach out to you within 24 hours.",
-          );
           form.reset();
         }
       }

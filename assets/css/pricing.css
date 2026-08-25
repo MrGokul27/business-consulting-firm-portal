@@ -68,3 +68,303 @@
   font-weight: 700;
   margin-bottom: 12px;
 }
+
+/* Pricing Feature Comparison Table Hover & Visuals */
+.comparison-table-wrapper {
+  transition: var(--transition-medium);
+}
+.comparison-table-wrapper:hover {
+  box-shadow: var(--box-shadow-lg);
+  transform: translateY(-2px);
+}
+.comparison-table tbody tr {
+  transition: var(--transition-fast);
+}
+.comparison-table tbody tr:hover td {
+  background-color: rgba(0, 46, 79, 0.02) !important;
+}
+.comparison-table tbody tr:hover td:first-child {
+  color: var(--secondary-color);
+  padding-left: 25px; /* Subtle slide effect */
+}
+.comparison-table td:first-child {
+  transition: var(--transition-fast);
+}
+.comparison-table i {
+  transition: var(--transition-fast);
+}
+.comparison-table tr:hover i {
+  transform: scale(1.2);
+}
+
+/* Custom Estimator Panel & Form Checks */
+.estimator-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+  border: 1px solid rgba(0, 46, 79, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-medium);
+}
+.estimator-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(223, 202, 95, 0.05) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.estimator-card:hover {
+  box-shadow: var(--box-shadow-lg);
+  border-color: rgba(223, 202, 95, 0.2);
+}
+.estimator-card > .row {
+  position: relative;
+  z-index: 1;
+}
+.estimator-card form {
+  transition: var(--transition-medium);
+}
+.estimator-card form:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md) !important;
+  border-color: rgba(0, 46, 79, 0.1) !important;
+}
+.estimator-card form .form-control {
+  transition: var(--transition-fast);
+}
+.estimator-card form .form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.25rem rgba(223, 202, 95, 0.25);
+}
+
+/* Scoping form checkbox lists as card buttons */
+.custom-scope-check {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 12px;
+}
+.custom-scope-check .form-check-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.custom-scope-check label {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  background-color: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+  width: 100%;
+}
+.custom-scope-check label:hover {
+  border-color: var(--secondary-color);
+  background-color: rgba(223, 202, 95, 0.05);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-sm);
+}
+.custom-scope-check .form-check-input:checked + label {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+}
+.custom-scope-check label::before {
+  content: "\f0fe"; /* FontAwesome square-plus */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  transition: var(--transition-fast);
+}
+.custom-scope-check .form-check-input:checked + label::before {
+  content: "\f058"; /* FontAwesome circle-check */
+  color: var(--secondary-color);
+}
+
+/* Estimator Sidebar Contact list elements hover */
+.estimator-card .contact-info li {
+  transition: var(--transition-fast);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+.estimator-card .contact-info li:hover {
+  background-color: rgba(223, 202, 95, 0.1);
+  color: var(--primary-color) !important;
+  transform: translateX(5px);
+}
+.estimator-card .contact-info li i {
+  transition: var(--transition-fast);
+}
+.estimator-card .contact-info li:hover i {
+  transform: scale(1.2);
+}
+
+/* Promise Card (Billing Flexibility Section) */
+.promise-card {
+  transition: var(--transition-medium);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    #061c2c 100%
+  ) !important;
+  position: relative;
+  overflow: hidden;
+}
+.promise-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 50%,
+    rgba(223, 202, 95, 0.03) 100%
+  );
+  pointer-events: none;
+}
+.promise-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 46, 79, 0.25);
+  border-start-color: var(--white) !important;
+}
+.promise-card i {
+  transition: var(--transition-medium);
+}
+.promise-card:hover i {
+  transform: rotate(360deg);
+}
+
+/* SLA terms list */
+.sla-term-card {
+  transition: var(--transition-medium);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.sla-term-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-lg);
+  border-top-color: var(--primary-color) !important;
+}
+.sla-term-card h5 i {
+  transition: var(--transition-medium);
+}
+.sla-term-card:hover h5 i {
+  transform: rotate(15deg) scale(1.2);
+  color: var(--primary-color) !important;
+}
+
+/* FAQ Accordion Item Styling and Hovers */
+.faq-accordion .accordion-item {
+  border: 1px solid rgba(0, 46, 79, 0.08);
+  margin-bottom: 16px;
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: var(--transition-fast);
+  background-color: var(--white);
+}
+.faq-accordion .accordion-item:hover {
+  border-color: var(--secondary-color);
+  box-shadow: var(--box-shadow-sm);
+  transform: translateY(-2px);
+}
+.faq-accordion .accordion-button {
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 20px 24px;
+  transition: var(--transition-fast);
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  background-color: rgba(0, 46, 79, 0.03);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+.faq-accordion .accordion-button:hover {
+  color: var(--secondary-color);
+  background-color: rgba(223, 202, 95, 0.05);
+}
+.faq-accordion .accordion-body {
+  padding: 20px 24px;
+  color: var(--text-body);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+/* Talk to Finance Advisor CTA box styling */
+.finance-cta-box {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #061c2c 100%);
+  border: 2px solid var(--secondary-color);
+  position: relative;
+  transition: var(--transition-medium);
+}
+.finance-cta-box::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 70%;
+  height: 140%;
+  background: radial-gradient(
+    circle,
+    rgba(223, 202, 95, 0.12) 0%,
+    transparent 60%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.finance-cta-box::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  right: -30%;
+  width: 70%;
+  height: 140%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 60%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.finance-cta-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 46, 79, 0.3) !important;
+  border-color: var(--white);
+}
+.finance-cta-box .section-subtitle::before {
+  background-color: var(--secondary-color);
+}
+.finance-cta-box .text-light-muted {
+  color: #e2e8f0;
+}
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--white) !important;
+  border: 2px solid var(--white);
+  transition: var(--transition-medium);
+}
+.btn-outline-white:hover {
+  background-color: var(--white);
+  color: var(--primary-color) !important;
+  transform: translateY(-3px);
+}
