@@ -138,7 +138,7 @@
                   operations parameters.
                 </p>
               </div>
-              <form action="#" method="POST">
+              <form action="#" method="POST" data-redirect-404="true">
                 <div class="row g-3 mb-3">
                   <div class="col-md-6">
                     <div class="input-group-custom">
@@ -146,6 +146,8 @@
                         type="text"
                         class="form-control rounded-3"
                         placeholder="Full Contact Name"
+                        data-type="fullname"
+                        maxlength="16"
                         required
                       />
                       <span class="input-icon"
@@ -174,6 +176,8 @@
                         type="tel"
                         class="form-control rounded-3"
                         placeholder="Phone Number (e.g. +91 9876543210)"
+                        data-type="phone"
+                        maxlength="10"
                         required
                       />
                       <span class="input-icon"

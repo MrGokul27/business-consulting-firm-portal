@@ -165,14 +165,72 @@ function initializeCounters() {
  * Validates form submission inputs for clean client-side feedback
  */
 function initializeForms() {
-  const forms = document.querySelectorAll("form");
+  // 1. Keypress constraints (block invalid keys as they are typed)
+  document.addEventListener("keypress", function (event) {
+    const target = event.target;
+    if (target.matches('input[data-type="fullname"]')) {
+      const key = event.key;
+      // Allow key only if it's a letter or space.
+      if (key.length === 1 && !/^[a-zA-Z\s]$/.test(key)) {
+        event.preventDefault();
+      }
+    } else if (target.matches('input[data-type="phone"]')) {
+      const key = event.key;
+      // Allow key only if it's a digit 0-9
+      if (key.length === 1 && !/^[0-9]$/.test(key)) {
+        event.preventDefault();
+      }
+    }
+  });
 
-  forms.forEach((form) => {
-    form.addEventListener("submit", function (event) {
-      let isValid = true;
-      const requiredInputs = form.querySelectorAll("[required]");
+  // 2. Input constraints (sanitize immediately on change/paste)
+  document.addEventListener("input", function (event) {
+    const target = event.target;
+    if (target.matches('input[data-type="fullname"]')) {
+      const originalValue = target.value;
+      const sanitizedValue = originalValue.replace(/[^a-zA-Z\s]/g, "");
+      if (originalValue !== sanitizedValue) {
+        target.value = sanitizedValue;
+      }
+    } else if (target.matches('input[data-type="phone"]')) {
+      const originalValue = target.value;
+      const sanitizedValue = originalValue.replace(/[^0-9]/g, "");
+      if (originalValue !== sanitizedValue) {
+        target.value = sanitizedValue;
+      }
+    }
 
-      requiredInputs.forEach((input) => {
+    // Also handle bootstrap "is-invalid" class removal on key/input
+    if (target.matches("input, textarea, select")) {
+      if (target.type === "checkbox") {
+        if (target.checked) {
+          target.classList.remove("is-invalid");
+        }
+      } else {
+        if (target.value.trim()) {
+          target.classList.remove("is-invalid");
+        }
+      }
+    }
+  });
+
+  // 3. Form submit delegation
+  document.addEventListener("submit", function (event) {
+    const form = event.target.closest("form");
+    if (!form) return;
+
+    let isValid = true;
+    const requiredInputs = form.querySelectorAll("[required]");
+
+    requiredInputs.forEach((input) => {
+      if (input.type === "checkbox") {
+        if (!input.checked) {
+          isValid = false;
+          input.classList.add("is-invalid");
+        } else {
+          input.classList.remove("is-invalid");
+        }
+      } else {
         if (!input.value.trim()) {
           isValid = false;
           input.classList.add("is-invalid");
@@ -188,11 +246,19 @@ function initializeForms() {
             }
           }
         }
-      });
+      }
+    });
 
-      if (!isValid) {
+    if (!isValid) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      // Check if this form should redirect to 404
+      if (form.hasAttribute("data-redirect-404")) {
         event.preventDefault();
-        event.stopPropagation();
+        const isRoot = !window.location.pathname.includes("/pages/");
+        const redirectUrl = isRoot ? "404.html" : "../404.html";
+        window.location.href = redirectUrl;
       } else {
         // Prevent actually navigating on dummy form action
         const formAction = form.getAttribute("action");
@@ -201,16 +267,7 @@ function initializeForms() {
           form.reset();
         }
       }
-    });
-
-    // Remove invalid flag on keystroke
-    form.querySelectorAll("input, textarea").forEach((input) => {
-      input.addEventListener("input", function () {
-        if (this.value.trim()) {
-          this.classList.remove("is-invalid");
-        }
-      });
-    });
+    }
   });
 }
 

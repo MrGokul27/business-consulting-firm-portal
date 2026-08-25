@@ -543,12 +543,14 @@
             <div
               class="diagnostic-form-card p-4 bg-light-custom rounded-4 border"
             >
-              <form action="#" method="POST">
+              <form action="#" method="POST" data-redirect-404="true">
                 <div class="mb-3">
                   <input
                     type="text"
                     class="form-control bg-white"
                     placeholder="Full Name"
+                    data-type="fullname"
+                    maxlength="16"
                     required
                   />
                 </div>
