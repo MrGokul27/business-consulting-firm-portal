@@ -28,6 +28,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 6. Portfolio Navigation Filter
   initializePortfolioFilters();
+
+  // 7. Intercept empty/dummy links and redirect to 404
+  document.addEventListener("click", function (event) {
+    if (window.location.pathname.includes("404.html")) {
+      return;
+    }
+
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+
+    if (href === "" || href === "#" || !href) {
+      event.preventDefault();
+      const isRoot = !window.location.pathname.includes("/pages/");
+      const errorPagePath = isRoot ? "404.html" : "../404.html";
+      window.location.href = errorPagePath;
+    }
+  });
 });
 
 /**
