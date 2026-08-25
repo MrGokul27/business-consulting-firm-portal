@@ -141,77 +141,114 @@
               <form action="#" method="POST">
                 <div class="row g-3 mb-3">
                   <div class="col-md-6">
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      placeholder="Full Contact Name"
-                      required
-                    />
+                    <div class="input-group-custom">
+                      <input
+                        type="text"
+                        class="form-control rounded-3"
+                        placeholder="Full Contact Name"
+                        required
+                      />
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-user"></i
+                      ></span>
+                    </div>
                   </div>
                   <div class="col-md-6">
-                    <input
-                      type="email"
-                      class="form-control rounded-3"
-                      placeholder="Professional Email Address"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="row g-3 mb-3">
-                  <div class="col-md-6">
-                    <input
-                      type="tel"
-                      class="form-control rounded-3"
-                      placeholder="Phone Number (e.g. +91 9876543210)"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <input
-                      type="text"
-                      class="form-control rounded-3"
-                      placeholder="Company Legal Name"
-                      required
-                    />
+                    <div class="input-group-custom">
+                      <input
+                        type="email"
+                        class="form-control rounded-3"
+                        placeholder="Professional Email Address"
+                        required
+                      />
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-envelope"></i
+                      ></span>
+                    </div>
                   </div>
                 </div>
                 <div class="row g-3 mb-3">
                   <div class="col-md-6">
-                    <select
-                      class="form-select rounded-3 py-3"
-                      style="font-size: 0.95rem"
-                      required
-                    >
-                      <option value="" disabled selected>Corporate Size</option>
-                      <option>SMB (1 - 49 Employees)</option>
-                      <option>Mid-Market (50 - 249 Employees)</option>
-                      <option>Enterprise (250+ Employees)</option>
-                    </select>
+                    <div class="input-group-custom">
+                      <input
+                        type="tel"
+                        class="form-control rounded-3"
+                        placeholder="Phone Number (e.g. +91 9876543210)"
+                        required
+                      />
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-phone"></i
+                      ></span>
+                    </div>
                   </div>
                   <div class="col-md-6">
-                    <select
-                      class="form-select rounded-3 py-3"
-                      style="font-size: 0.95rem"
-                      required
-                    >
-                      <option value="" disabled selected>
-                        Service Interest
-                      </option>
-                      <option>Strategic Corporate Planning</option>
-                      <option>Financial Restructuring</option>
-                      <option>IT & Cloud Engineering</option>
-                      <option>Operations Management</option>
-                      <option>Compliance Risk Audits</option>
-                    </select>
+                    <div class="input-group-custom">
+                      <input
+                        type="text"
+                        class="form-control rounded-3"
+                        placeholder="Company Legal Name"
+                        required
+                      />
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-building"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <div class="input-group-custom">
+                      <select
+                        class="form-select rounded-3 py-3"
+                        style="font-size: 0.95rem"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          Corporate Size
+                        </option>
+                        <option>SMB (1 - 49 Employees)</option>
+                        <option>Mid-Market (50 - 249 Employees)</option>
+                        <option>Enterprise (250+ Employees)</option>
+                      </select>
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-users"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-custom">
+                      <select
+                        class="form-select rounded-3 py-3"
+                        style="font-size: 0.95rem"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          Service Interest
+                        </option>
+                        <option>Strategic Corporate Planning</option>
+                        <option>Financial Restructuring</option>
+                        <option>IT & Cloud Engineering</option>
+                        <option>Operations Management</option>
+                        <option>Compliance Risk Audits</option>
+                      </select>
+                      <span class="input-icon"
+                        ><i class="fa-solid fa-handshake"></i
+                      ></span>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-4">
-                  <textarea
-                    rows="4"
-                    class="form-control rounded-3"
-                    placeholder="Briefly summarize operating bottlenecks, data integration needs, or capital concerns..."
-                    required
-                  ></textarea>
+                  <div class="input-group-custom">
+                    <textarea
+                      rows="4"
+                      class="form-control rounded-3"
+                      placeholder="Briefly summarize operating bottlenecks, data integration needs, or capital concerns..."
+                      required
+                    ></textarea>
+                    <span class="input-icon"
+                      ><i class="fa-solid fa-comment-dots"></i
+                    ></span>
+                  </div>
                 </div>
                 <div class="form-check mb-4">
                   <input
@@ -271,7 +308,7 @@
     <section class="py-5 bg-light-custom">
       <div class="container py-4">
         <div
-          class="p-5 bg-dark-blue text-white rounded-4 border-start border-gold border-4"
+          class="p-5 bg-dark-blue text-white rounded-4 border-start border-gold border-4 emergency-hotline-banner"
         >
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
@@ -318,25 +355,43 @@
             </p>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 bg-light-custom rounded-4 border">
-              <ul class="list-unstyled mb-0 fs-sm">
-                <li class="py-2 border-bottom d-flex justify-content-between">
-                  <span>Diagnostic Forms Review</span>
-                  <span class="fw-bold text-dark-blue">Under 4 Hours</span>
-                </li>
-                <li class="py-2 border-bottom d-flex justify-content-between">
-                  <span>Pre-Meeting NDA Email</span>
-                  <span class="fw-bold text-dark-blue">Under 2 Hours</span>
-                </li>
-                <li class="py-2 border-bottom d-flex justify-content-between">
-                  <span>Meeting Alignment Booking</span>
-                  <span class="fw-bold text-dark-blue">Under 12 Hours</span>
-                </li>
-                <li class="py-2 d-flex justify-content-between">
-                  <span>Preliminary Diagnostic Report</span>
-                  <span class="fw-bold text-dark-blue">Under 48 Hours</span>
-                </li>
-              </ul>
+            <div class="sla-card-wrapper p-4 bg-light-custom rounded-4 border">
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <div class="sla-content">
+                  <span class="sla-title">Diagnostic Forms Review</span>
+                  <span class="sla-time">Under 4 Hours</span>
+                </div>
+              </div>
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div class="sla-content">
+                  <span class="sla-title">Pre-Meeting NDA Email</span>
+                  <span class="sla-time">Under 2 Hours</span>
+                </div>
+              </div>
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div class="sla-content">
+                  <span class="sla-title">Meeting Alignment Booking</span>
+                  <span class="sla-time">Under 12 Hours</span>
+                </div>
+              </div>
+              <div class="sla-item">
+                <div class="sla-icon">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="sla-content">
+                  <span class="sla-title">Preliminary Diagnostic Report</span>
+                  <span class="sla-time">Under 48 Hours</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

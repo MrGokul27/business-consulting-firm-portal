@@ -50,6 +50,27 @@
   padding: 50px;
   box-shadow: var(--box-shadow-md);
   border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-medium);
+}
+.contact-form-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transition: var(--transition-medium);
+}
+.contact-form-wrapper:hover {
+  box-shadow: var(--box-shadow-lg);
+  transform: translateY(-5px);
 }
 .contact-form-wrapper h3 {
   font-size: 1.8rem;
@@ -61,12 +82,19 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--light-bg);
   color: var(--text-dark);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-form-wrapper .form-control:hover,
+.contact-form-wrapper .form-select:hover {
+  border-color: rgba(223, 202, 95, 0.6);
+  background-color: var(--white);
 }
 .contact-form-wrapper .form-control:focus,
 .contact-form-wrapper .form-select:focus {
-  box-shadow: none;
-  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(223, 202, 95, 0.15);
+  border-color: var(--secondary-color);
   background-color: var(--white);
+  transform: translateY(-1px);
 }
 @media (max-width: 768px) {
   .contact-form-wrapper {
@@ -86,4 +114,215 @@
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+/* Custom Input Group with icons */
+.input-group-custom {
+  position: relative;
+}
+.input-group-custom .input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  pointer-events: none;
+  font-size: 0.95rem;
+  z-index: 10;
+}
+.input-group-custom .form-control,
+.input-group-custom .form-select {
+  padding-left: 48px !important;
+}
+.input-group-custom .form-control:focus + .input-icon,
+.input-group-custom .form-select:focus + .input-icon,
+.input-group-custom .form-control:hover + .input-icon,
+.input-group-custom .form-select:hover + .input-icon {
+  color: var(--secondary-color);
+}
+.input-group-custom textarea.form-control + .input-icon {
+  top: 20px;
+  transform: none;
+}
+
+/* Custom styles for checkbox and button */
+.contact-form-wrapper .form-check-input {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.contact-form-wrapper .form-check-input:checked {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.contact-form-wrapper .form-check-input:focus {
+  box-shadow: 0 0 0 4px rgba(223, 202, 95, 0.15);
+  border-color: var(--secondary-color);
+}
+.contact-form-wrapper .form-check-label {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.contact-form-wrapper .form-check-label:hover {
+  color: var(--primary-color) !important;
+}
+.contact-form-wrapper .btn-gold {
+  box-shadow: 0 4px 15px rgba(223, 202, 95, 0.3);
+  transition: all 0.4s ease;
+}
+.contact-form-wrapper .btn-gold:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+  border-color: var(--primary-color);
+  box-shadow: 0 6px 20px rgba(0, 46, 79, 0.4);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Emergency Hotline Banner styling */
+.emergency-hotline-banner {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-medium);
+  box-shadow: 0 10px 30px rgba(0, 46, 79, 0.1);
+  border-left: 4px solid var(--secondary-color) !important;
+  background: linear-gradient(135deg, #002e4f 0%, #031e33 100%) !important;
+}
+.emergency-hotline-banner:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 40px rgba(0, 46, 79, 0.25),
+    0 0 25px rgba(223, 202, 95, 0.15);
+  border-color: rgba(223, 202, 95, 0.4);
+}
+.emergency-hotline-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 90% 50%,
+    rgba(223, 202, 95, 0.08) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+.emergency-hotline-banner:hover::after {
+  opacity: 1;
+}
+.emergency-hotline-banner .row {
+  position: relative;
+  z-index: 2;
+}
+@keyframes bellWobble {
+  0% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(-15deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  45% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.emergency-hotline-banner:hover .fa-bell-exclamation {
+  display: inline-block;
+  animation: bellWobble 0.8s ease-in-out infinite alternate;
+  color: var(--secondary-color) !important;
+  text-shadow: 0 0 10px rgba(223, 202, 95, 0.4);
+}
+.emergency-hotline-banner .btn-gold {
+  box-shadow: 0 4px 15px rgba(223, 202, 95, 0.2);
+  transition: all 0.4s ease;
+}
+.emergency-hotline-banner:hover .btn-gold {
+  background-color: var(--white) !important;
+  color: var(--primary-color) !important;
+  border-color: var(--white);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* SLA Guarantees Section */
+.sla-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sla-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.sla-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--box-shadow-md);
+  border-color: rgba(223, 202, 95, 0.4);
+}
+.sla-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: rgba(0, 46, 79, 0.05);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-right: 18px;
+  transition: all 0.3s ease;
+}
+.sla-item:hover .sla-icon {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: scale(1.05);
+}
+.sla-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sla-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+.sla-time {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  background-color: rgba(0, 46, 79, 0.04);
+  padding: 6px 14px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 46, 79, 0.08);
+}
+.sla-item:hover .sla-time {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--secondary-color);
 }
