@@ -117,6 +117,8 @@
                   <input
                     type="text"
                     class="form-control rounded-3"
+                    id="ctaName"
+                    name="ctaName"
                     placeholder="Contact Full Name"
                     data-type="fullname"
                     maxlength="16"
@@ -127,12 +129,19 @@
                   <input
                     type="email"
                     class="form-control rounded-3"
+                    id="ctaEmail"
+                    name="ctaEmail"
                     placeholder="Corporate Email"
                     required
                   />
                 </div>
                 <div class="mb-3">
-                  <select class="form-select rounded-3" required>
+                  <select
+                    class="form-select rounded-3"
+                    id="ctaService"
+                    name="ctaService"
+                    required
+                  >
                     <option value="" disabled selected>Service Interest</option>
                     <option>Strategic Planning</option>
                     <option>Financial Advisory</option>
@@ -1134,6 +1143,8 @@
                   <input
                     type="text"
                     class="form-control rounded-3"
+                    id="diagnosticName"
+                    name="diagnosticName"
                     placeholder="Contact Full Name"
                     data-type="fullname"
                     maxlength="16"
@@ -1144,6 +1155,8 @@
                   <input
                     type="email"
                     class="form-control rounded-3"
+                    id="diagnosticEmail"
+                    name="diagnosticEmail"
                     placeholder="Corporate Email"
                     required
                   />
@@ -1153,6 +1166,8 @@
                     <input
                       type="text"
                       class="form-control rounded-3"
+                      id="diagnosticCompany"
+                      name="diagnosticCompany"
                       placeholder="Company Name"
                       required
                     />
@@ -1160,6 +1175,8 @@
                   <div class="col-md-6">
                     <select
                       class="form-select bg-dark-input text-white border-secondary rounded-3 py-3"
+                      id="diagnosticService"
+                      name="diagnosticService"
                       style="font-size: 0.95rem"
                       required
                     >
@@ -1177,6 +1194,8 @@
                   <textarea
                     rows="3"
                     class="form-control rounded-3"
+                    id="diagnosticChallenge"
+                    name="diagnosticChallenge"
                     placeholder="Brief outline of operations challenge..."
                     required
                   ></textarea>

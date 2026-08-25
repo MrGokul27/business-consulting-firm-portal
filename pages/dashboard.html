@@ -735,9 +735,11 @@
                 <div class="custom-card-body">
                   <div class="row mb-4">
                     <div class="col-12">
-                      <label class="fw-semibold text-dark-blue mb-1 fs-sm"
+                      <span
+                        id="platformProgressLabel"
+                        class="d-block fw-semibold text-dark-blue mb-1 fs-sm"
                         >Platform Development & Process Implementation
-                        Progress:</label
+                        Progress:</span
                       >
                       <div
                         class="progress rounded-pill bg-light"
@@ -749,6 +751,7 @@
                         <div
                           class="progress-bar bg-gold fw-bold text-end pe-3"
                           role="progressbar"
+                          aria-labelledby="platformProgressLabel"
                           style="width: 82%"
                           aria-valuenow="82"
                           aria-valuemin="0"

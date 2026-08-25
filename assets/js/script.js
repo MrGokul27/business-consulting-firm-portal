@@ -90,6 +90,12 @@ function loadComponents() {
             });
           }
         }
+      })
+      .catch((err) => {
+        console.warn(
+          "Could not load component dynamically (CORS restriction or network issue):",
+          err,
+        );
       });
   }
 
@@ -177,17 +183,19 @@ function initializeForms() {
   // 1. Keypress constraints (block invalid keys as they are typed)
   document.addEventListener("keypress", function (event) {
     const target = event.target;
-    if (target.matches('input[data-type="fullname"]')) {
-      const key = event.key;
-      // Allow key only if it's a letter or space.
-      if (key.length === 1 && !/^[a-zA-Z\s]$/.test(key)) {
-        event.preventDefault();
-      }
-    } else if (target.matches('input[data-type="phone"]')) {
-      const key = event.key;
-      // Allow key only if it's a digit 0-9
-      if (key.length === 1 && !/^[0-9]$/.test(key)) {
-        event.preventDefault();
+    if (target && typeof target.matches === "function") {
+      if (target.matches('input[data-type="fullname"]')) {
+        const key = event.key;
+        // Allow key only if it's a letter or space.
+        if (key.length === 1 && !/^[a-zA-Z\s]$/.test(key)) {
+          event.preventDefault();
+        }
+      } else if (target.matches('input[data-type="phone"]')) {
+        const key = event.key;
+        // Allow key only if it's a digit 0-9
+        if (key.length === 1 && !/^[0-9]$/.test(key)) {
+          event.preventDefault();
+        }
       }
     }
   });
@@ -195,29 +203,31 @@ function initializeForms() {
   // 2. Input constraints (sanitize immediately on change/paste)
   document.addEventListener("input", function (event) {
     const target = event.target;
-    if (target.matches('input[data-type="fullname"]')) {
-      const originalValue = target.value;
-      const sanitizedValue = originalValue.replace(/[^a-zA-Z\s]/g, "");
-      if (originalValue !== sanitizedValue) {
-        target.value = sanitizedValue;
-      }
-    } else if (target.matches('input[data-type="phone"]')) {
-      const originalValue = target.value;
-      const sanitizedValue = originalValue.replace(/[^0-9]/g, "");
-      if (originalValue !== sanitizedValue) {
-        target.value = sanitizedValue;
-      }
-    }
-
-    // Also handle bootstrap "is-invalid" class removal on key/input
-    if (target.matches("input, textarea, select")) {
-      if (target.type === "checkbox") {
-        if (target.checked) {
-          target.classList.remove("is-invalid");
+    if (target && typeof target.matches === "function") {
+      if (target.matches('input[data-type="fullname"]')) {
+        const originalValue = target.value;
+        const sanitizedValue = originalValue.replace(/[^a-zA-Z\s]/g, "");
+        if (originalValue !== sanitizedValue) {
+          target.value = sanitizedValue;
         }
-      } else {
-        if (target.value.trim()) {
-          target.classList.remove("is-invalid");
+      } else if (target.matches('input[data-type="phone"]')) {
+        const originalValue = target.value;
+        const sanitizedValue = originalValue.replace(/[^0-9]/g, "");
+        if (originalValue !== sanitizedValue) {
+          target.value = sanitizedValue;
+        }
+      }
+
+      // Also handle bootstrap "is-invalid" class removal on key/input
+      if (target.matches("input, textarea, select")) {
+        if (target.type === "checkbox") {
+          if (target.checked) {
+            target.classList.remove("is-invalid");
+          }
+        } else {
+          if (target.value.trim()) {
+            target.classList.remove("is-invalid");
+          }
         }
       }
     }
