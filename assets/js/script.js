@@ -47,6 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = errorPagePath;
     }
   });
+
+  // 8. Initialize Preloader
+  initializePreloader();
+
+  // 9. Initialize Scroll Reveal Animations
+  initializeScrollReveal();
 });
 
 /**
@@ -337,4 +343,96 @@ function updateHeaderForLoggedInUser(pages) {
         '<i class="fa-solid fa-gauge-high me-1"></i> Dashboard';
     }
   }
+}
+
+/**
+ * Handles the premium 2-second preloader overlay animation.
+ */
+function initializePreloader() {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  // Lock scrolling
+  document.body.style.overflow = "hidden";
+
+  const progressBar = preloader.querySelector(".preloader-progress-bar");
+  const statusPercent = preloader.querySelector(".preloader-status-percent");
+  const statusText = preloader.querySelector(".preloader-status-text");
+
+  // Dynamic status text handler
+  function getStatusText(percent) {
+    if (percent < 25) return "Initializing Gateway...";
+    if (percent < 50) return "Loading Strategy Dashboard...";
+    if (percent < 75) return "Encrypting Connection...";
+    if (percent < 90) return "Retrieving Advisory Assets...";
+    return "Establishing Handshake...";
+  }
+
+  // Animate progress bar to 100%
+  setTimeout(() => {
+    if (progressBar) progressBar.style.width = "100%";
+  }, 100);
+
+  // Animate status percentage counter from 0 to 100
+  let currentPercent = 0;
+  const duration = 1800; // Complete counter slightly before fade out
+  const stepMs = duration / 100;
+
+  const counterInterval = setInterval(() => {
+    currentPercent++;
+    if (statusPercent) {
+      statusPercent.textContent = currentPercent + "%";
+    }
+
+    if (statusText) {
+      const nextText = getStatusText(currentPercent);
+      if (statusText.textContent !== nextText) {
+        statusText.style.opacity = "0";
+        setTimeout(() => {
+          statusText.textContent = nextText;
+          statusText.style.opacity = "1";
+        }, 150);
+      }
+    }
+
+    if (currentPercent >= 100) {
+      clearInterval(counterInterval);
+    }
+  }, stepMs);
+
+  // Fade out preloader at 2000ms (2 seconds)
+  setTimeout(() => {
+    preloader.classList.add("fade-out");
+    document.body.style.overflow = ""; // Restore scrolling
+
+    // Fully remove from document layout after transition
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 600);
+  }, 2000);
+}
+
+/**
+ * Handles lightweight, performance-friendly scroll-reveal animations.
+ */
+function initializeScrollReveal() {
+  const revealElements = document.querySelectorAll(".reveal-fade-in");
+  if (revealElements.length === 0) return;
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target); // Reveal only once
+        }
+      });
+    },
+    {
+      threshold: 0.12, // Trigger when 12% of the element is visible
+      rootMargin: "0px 0px -50px 0px", // Trigger slightly before coming fully into view
+    },
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
 }
