@@ -141,6 +141,7 @@ body.dashboard-body {
   display: flex;
   flex-direction: column;
   transition: var(--transition-fast);
+  min-width: 0;
 }
 
 .dashboard-header {
@@ -174,11 +175,12 @@ body.dashboard-body {
 .dashboard-content-body {
   padding: 2rem;
   flex-grow: 1;
+  min-width: 0;
 }
 
-.role-content-group {
+/* .role-content-group {
   padding: 0 2rem;
-}
+} */
 
 /* Tab Contents Toggle */
 .dashboard-tab-content {
@@ -467,9 +469,9 @@ body.dashboard-body {
     padding: 1.25rem;
   }
 
-  .role-content-group {
+  /* .role-content-group {
     padding: 0 1.25rem;
-  }
+  } */
 }
 
 /* Document upload dropzone styling */
