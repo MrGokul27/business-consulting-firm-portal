@@ -151,6 +151,14 @@
   border-color: var(--primary-color);
 }
 
+/* Newsletter Section Input */
+.bg-dark-input {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.bg-dark-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* Newsletter Standalone Widget */
 .widget-newsletter-box {
   background-color: var(--primary-color);
